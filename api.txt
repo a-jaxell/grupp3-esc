@@ -1,0 +1,12 @@
+    Listan med alla challenges ska laddas från ett API. Exakt format specificeras den 17 nov, men data som finns för varje challenge är:
+        Titel
+        Beskrivning
+        Typ (online/on-site)
+        Minsta antal deltagare
+        Högsta antal deltagare
+        Rating (siffra 0-5)
+        URL till bild
+        Etiketter
+    Data från API ska användas för att bygga upp “korten” för rummen i DOM
+        Dels på startsidan där de tre med högst rating ska visas
+        Dels på en ny sida där alla ska visas
