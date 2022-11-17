@@ -48,3 +48,7 @@ Material
 
     Wireframes (och viss specifikation av funktionalitet) på Whimsical: https://whimsical.com/esc-hacker-escape-rooms-F8mpWfqf6GYnJQs6cff1fL
     Specifikation av API (redovisas torsdag den 17 november)
+
+
+
+    
