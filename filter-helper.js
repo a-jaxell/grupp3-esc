@@ -2,6 +2,7 @@
 // 
 // await queryJson(property, query, endpoint); to recieve an array of room id's
 // that matches the query 
+const url = 'https://lernia-sjj-assignments.vercel.app/api';
 
 export const queryJson = async (property, query, endpoint) => {
     const queryEndpoint = endpoint;
