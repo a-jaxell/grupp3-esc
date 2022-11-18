@@ -11,3 +11,4 @@ package.json
 filter.js
 /static
 /src
+.gitignore
