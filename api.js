@@ -1,7 +1,7 @@
 const cardContainer = document.querySelector(".challenges");
-const challengeList = document.querySelector("#challenge-list");
+const challengeList = document.querySelector(".challenge-list");
 const challengeArray = [];
-
+// cardContainer & challengeList TODO: classnamn/id? ^
 (async () =>
 {
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
@@ -14,29 +14,90 @@ const challengeArray = [];
 console.log(challengeArray);
 
 function addCard(challengeArray) {
-    challengeArray.forEach(element => {
+    
+    challengeArray.forEach(ele => {
         
-        let card = document.createElement("li");
-        let img = document.createElement("img");
-        let title = document.createElement("h3");
-        let rating = document.createElement("ul");
-        
-        card.setAttribute("class", "challenge-item");
-        img.setAttribute("src", element.image);
-        title.innerHTML = element.title;
-        
-        
-        card.appendChild(img);
-        card.appendChild(title);
-        card.appendChild(rating);
+      let item = document.createElement("li");
       
-        challengeList.appendChild(card);
-    });
+      let img = document.createElement("img");
+      img.setAttribute("src", ele.image);
+      let title = document.createElement("h3");
+      title.innerHTML = `${ele.title} (${ele.type})`;
+      
+      let rating = document.createElement("ul") // alvars funktion
+      let star = document.createElement("li");
+      star.className("rating-star active"); //tillfällig funktion
+      (() => {
+          rating.appendChild(star) * 5;
+      })();
+      
+      let Participants = document.createElement("small");
+      Participants.className("challenge-meta");
+      Participants.innerHTML = `${ele.minParticipants}-${ele.maxParticipants} participants`;
+      
+      let description = document.createElement("p");
+      description.className("challenge-description");
+      description.innerHTML = ele.description;
+      
+      item.setAttribute("class", "challenge-item");
+      
+      item.appendChild(img);
+      item.appendChild(title);
+      item.appendChild(rating);
+      
+      challengeList.appendChild(item);
+  });
 }
 
 addCard(challengeArray);
 
 
+/*
 
+​​
+description: "Take over the world with code"
+​​
+id: 1
+​​
+image: "https://placekitten.com/640/480"
+​​
+labels: Array [ "bash", "linux" ]
+​​
+maxParticipants: 6
+​​
+minParticipants: 1
+​​
+rating: 3.5
+​​
+title: "Shell 3000"
+​
+type: "onsite"
 
+*/
 
+/*
+
+    <li class="challenge-item">
+                <img class="challenge-image" alt="Hacker" src="static/hero.png">
+                <h3 class="challenge-title">Title of room (on-site)</h3>
+                <ul role="meter" class="rating" aria-label="rating"
+                    arial-valuemin="0" aria-valuemax="5" aria-valuenow="4"
+                    aria-valuetext="4 out of 5">
+
+                    <li class="rating-star active"></li>
+                    <li class="rating-star active"></li>
+                    <li class="rating-star active"></li>
+                    <li class="rating-star active"></li>
+                    <li class="rating-star"></li>
+                </ul>
+                <small class="challenge-meta">2-6 participants</small>
+                <p class="challenge-description">
+                    Praeterea, ex culpa non invenies unum aut non accusatis
+                    unum. Et nihil inuitam. Nemo nocere tibi
+                    erit, et non inimicos, et
+                </p>
+                <button class="button primary">Book this room</button>
+            </li>
+        </ul>
+
+*/ 
