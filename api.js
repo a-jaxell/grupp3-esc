@@ -1,7 +1,14 @@
-import { asyncCall as getChallenges } from "./getChallengeApi.js";
-const myArr = getChallenges();
+const challengeArr = [];
 
-console.log(myArr);
+export async function asyncCall() {
+  const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
+  const data = await res.json();
+  data.challenges.forEach((challenge) => {
+    challengeArr.push(challenge);
+  });
+}
+
+console.log(challengeArr);
 
 const challenges = document.querySelector(".challenges");
 const challengeList = document.querySelector(".challenge-list");
