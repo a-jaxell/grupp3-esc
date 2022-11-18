@@ -2,15 +2,16 @@ const cardContainer = document.querySelector(".challenges");
 const challengeList = document.querySelector("#challenge-list");
 const challengeArray = [];
 
-async function asyncCall()
+(async () =>
 {
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
     const data = await res.json();
     data.challenges.forEach(challenge => {
         challengeArray.push(challenge);
     });
-}
-asyncCall();
+})();
+
+console.log(challengeArray);
 
 function addCard(challengeArray) {
     challengeArray.forEach(element => {
