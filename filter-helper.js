@@ -3,7 +3,7 @@
 // await queryJson(property, query, endpoint); to recieve an array of room id's
 // that matches the query 
 
-const queryJson = async (property, query, endpoint) => {
+export const queryJson = async (property, query, endpoint) => {
     const queryEndpoint = endpoint;
     const requestUrl = `${url}/${queryEndpoint}`;
     const queryProperty = property;
@@ -20,6 +20,7 @@ const queryJson = async (property, query, endpoint) => {
                 dataArray.push(element.id);
                 }
             });
+            return dataArray;
         }
     }
     catch(error){
