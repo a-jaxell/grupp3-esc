@@ -1,8 +1,6 @@
 const challenges = document.querySelector(".challenges");
 const challengeList = document.querySelector(".challenge-list");
 
-
-
 //Objekt som skapats från ett API
 const challenge1 = {
     title: "Title of Challenge",
@@ -15,6 +13,21 @@ const challenge1 = {
     tags = ['online', 'Cryptography', 'Hacking', 'Puzzle']
 };
 
+const challenge2 = {
+    title: "Title of Challenge",
+    description: "skitroligt rum jag svär",
+    type: "online",
+    img: "https://placekitten.com/g/200/300",
+    rating: "3",
+    minParticipants: 2,
+    maxParticipants: 6,
+    tags: ['online', 'Cryptography', 'Hacking', 'Puzzle']
+};
+
+const arrOfChallenges = [challenge1, challenge2];
+array.forEach(challenge => {
+    addCard(challenge);
+});
 
 // Funktion som skapar element i DOM med värden tagna från objekt som skapas ifrån API
 function addCard(object) {
@@ -65,4 +78,4 @@ btn.addEventListener("click", () => {
 </p>
 <button class="button primary">Book this room</button>
 </li>
-/*
+*/
