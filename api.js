@@ -1,4 +1,4 @@
-import { asayncCall as getChallenges } from "./getChallengeApi";
+import { asyncCall as getChallenges } from "./getChallengeApi.js";
 const myArr = getChallenges();
 
 console.log(myArr);
