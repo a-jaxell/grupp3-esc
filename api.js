@@ -1,6 +1,15 @@
 const cardContainer = document.querySelector(".challenges");
 const challengeList = document.querySelector(".challenge-list");
 const challengeArray = [];
+const testBtn = document.querySelector("#hej");
+
+
+testBtn.addEventListener("click", () => {
+    console.log("stringie");
+    addCard(challengeArray);
+
+});
+
 // cardContainer & challengeList TODO: classnamn/id? ^
 (async () =>
 {
@@ -25,11 +34,11 @@ function addCard(challengeArray) {
       title.innerHTML = `${ele.title} (${ele.type})`;
       
       let rating = document.createElement("ul") // alvars funktion
-      let star = document.createElement("li");
+     /*  let star = document.createElement("li");
       star.className("rating-star active"); //tillfällig funktion
       (() => {
           rating.appendChild(star) * 5;
-      })();
+      })(); */
       
       let Participants = document.createElement("small");
       Participants.className("challenge-meta");
