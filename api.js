@@ -30,64 +30,55 @@ function addCard() {
       
       let img = document.createElement("img");
       img.setAttribute("src", ele.image);
+      img.className = "challenge-image";
       let title = document.createElement("h3");
+      title.className = "challenge-title";
       title.innerHTML = `${ele.title} (${ele.type})`;
       
       let rating = document.createElement("ul") // alvars funktion
-      let star = document.createElement("li");
-      star.className = "rating-star active"; //tillfällig funktion
-      (() => {
+      rating.className = "rating";
+
+      /* (() => {
           rating.appendChild(star) * 5;
-      })();
+      })(); */
+      for(let i = 0; i < 5; i++){
+        let star = document.createElement("li");
+        star.className = "rating-star active"; //tillfällig funktion
+        rating.appendChild(star);
+      }
+
       
-      let Participants = document.createElement("small");
-      Participants.className = "challenge-meta";
-      Participants.innerHTML = `${ele.minParticipants}-${ele.maxParticipants} participants`;
+      
+      let participants = document.createElement("small");
+      participants.className = "challenge-meta";
+      participants.innerHTML = `${ele.minParticipants}-${ele.maxParticipants} participants`;
       
       let description = document.createElement("p");
       description.className = "challenge-description";
       description.innerHTML = ele.description;
-      
+      let KNAPP = document.createElement("button");
+      KNAPP.className = "button primary";
+      KNAPP.setAttribute("id", ele.id);
+      KNAPP.innerHTML = "FYFAN VILKEN BRA KNAPP";
       item.setAttribute("class", "challenge-item");
-      
+
       item.appendChild(img);
       item.appendChild(title);
       item.appendChild(rating);
-      
+      item.appendChild(participants);
+      item.appendChild(description);
+      item.appendChild(KNAPP);
       challengeList.appendChild(item);
+
+      
   });
 }
 
-// function printArr() {
-//     console.log(challengeArray);
-// }
-// setTimeout(printArr, 3000);
-// setTimeout(addCard, 3000);
 
 
 
-/*
 
-​​
-description: "Take over the world with code"
-​​
-id: 1
-​​
-image: "https://placekitten.com/640/480"
-​​
-labels: Array [ "bash", "linux" ]
-​​
-maxParticipants: 6
-​​
-minParticipants: 1
-​​
-rating: 3.5
-​​
-title: "Shell 3000"
-​
-type: "onsite"
 
-*/
 
 /*
 
@@ -115,3 +106,27 @@ type: "onsite"
         </ul>
 
 */ 
+
+
+/*
+
+​​
+description: "Take over the world with code"
+​​
+id: 1
+​​
+image: "https://placekitten.com/640/480"
+​​
+labels: Array [ "bash", "linux" ]
+​​
+maxParticipants: 6
+​​
+minParticipants: 1
+​​
+rating: 3.5
+​​
+title: "Shell 3000"
+​
+type: "onsite"
+
+*/
