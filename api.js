@@ -20,7 +20,7 @@ testBtn.addEventListener("click", () => {
     });
 })();
 
-console.log(challengeArray);
+// console.log(challengeArray);
 
 function addCard(challengeArray) {
     
@@ -34,18 +34,18 @@ function addCard(challengeArray) {
       title.innerHTML = `${ele.title} (${ele.type})`;
       
       let rating = document.createElement("ul") // alvars funktion
-     /*  let star = document.createElement("li");
-      star.className("rating-star active"); //tillfällig funktion
+      let star = document.createElement("li");
+      star.className = "rating-star active"; //tillfällig funktion
       (() => {
           rating.appendChild(star) * 5;
-      })(); */
+      })();
       
       let Participants = document.createElement("small");
-      Participants.className("challenge-meta");
+      Participants.className = "challenge-meta";
       Participants.innerHTML = `${ele.minParticipants}-${ele.maxParticipants} participants`;
       
       let description = document.createElement("p");
-      description.className("challenge-description");
+      description.className = "challenge-description";
       description.innerHTML = ele.description;
       
       item.setAttribute("class", "challenge-item");
