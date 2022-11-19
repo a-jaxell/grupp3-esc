@@ -18,11 +18,11 @@ testBtn.addEventListener("click", () => {
     data.challenges.forEach(challenge => {
         challengeArray.push(challenge);
     });
+    addCard(); //wait for async to finish
 })();
 
-// console.log(challengeArray);
-
-function addCard(challengeArray) {
+//remove function
+function addCard() {
     
     challengeArray.forEach(ele => {
         
@@ -58,7 +58,12 @@ function addCard(challengeArray) {
   });
 }
 
-addCard(challengeArray);
+// function printArr() {
+//     console.log(challengeArray);
+// }
+// setTimeout(printArr, 3000);
+// setTimeout(addCard, 3000);
+
 
 
 /*
