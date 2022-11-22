@@ -10,9 +10,7 @@ testBtn.addEventListener("click", () => {
 
 });
 
-
 // cardContainer & challengeList TODO: classnamn/id? ^
-
 (async () =>
 {
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
