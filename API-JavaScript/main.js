@@ -1,4 +1,4 @@
-import ChallengeList from "./APIadapter.js";
+import ChallengeList from "./ChallengeList.js";
     
 (async () => {
   const container = document.querySelector(".challenges");
