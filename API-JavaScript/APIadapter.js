@@ -1,3 +1,14 @@
+class APIAdapter {
+    async loadChallenges() {
+        const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
+        const data = await res.json(); //Får ut ett objekt som håller en array med x antal objekt
+
+        // return data.challenges.map(data => new Challenge(data));
+        
+        return data.challenges.map(function(object){
+             new Challenge(object)});
+    };
+};
 // <section class="challenges">
 //     <h2>Popular challenges right now</h2>
 //     <ul class="challenge-list">
@@ -25,17 +36,6 @@ newList.render();
 // cardContainer.appendChild(ul);
 
 
-class APIAdapter {
-    async loadChallenges() {
-        const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
-        const data = await res.json(); //Får ut ett objekt som håller en array med x antal objekt
-
-        // return data.challenges.map(data => new Challenge(data));
-        
-        return data.challenges.map(function(object){
-             new Challenge(object)});
-    };
-};
 
 
 class Challenge {
