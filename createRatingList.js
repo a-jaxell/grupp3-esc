@@ -15,7 +15,7 @@
 
 // hämta värdet av rating från API
 // skapa en loop som itererar x antal ggr beroende på vad rating har för värde
-// skapa li element med stjärnor som är ifyllda eller ej 
+// skapa li element med stjärnor som är ifyllda eller ej hej
 
 
 function createRating(rating){
