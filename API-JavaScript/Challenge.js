@@ -10,6 +10,7 @@ export default class Challenge {
         let img = document.createElement("img");
         img.setAttribute("src", this.obj.image);
         img.className = "challenge-image"   
+
         let title = document.createElement("h3");
         title.className = "challenge-title";
         title.innerHTML = `${this.obj.title} (${this.obj.type})`;
@@ -30,10 +31,12 @@ export default class Challenge {
         let description = document.createElement("p");
         description.className = "challenge-description";
         description.innerHTML = this.obj.description    
+
         let KNAPP = document.createElement("button");
         KNAPP.className = "button primary";
         KNAPP.setAttribute("id", this.obj.id);
-        KNAPP.innerHTML = "Book this room"  
+        KNAPP.innerHTML = "Book this room";
+          
         item.setAttribute("class", "challenge-item");
         item.appendChild(img);
         item.appendChild(title);
