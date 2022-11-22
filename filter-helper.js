@@ -17,7 +17,7 @@ export const queryJson = async (property, query, endpoint) => {
             const data = jsonResponse[queryEndpoint];
             const dataArray = [];
             data.forEach(element => {
-                if(element[queryProperty] === `${queryValue}`){
+                if(element[queryProperty] === queryValue){
                 dataArray.push(element.id);
                 }
             });
