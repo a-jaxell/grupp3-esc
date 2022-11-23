@@ -1,0 +1,31 @@
+
+# Fyrstegsmetoden
+1. Definiera
+2. Separera
+3. Experimentera
+4. Kombinera
+
+
+    Listan med alla challenges ska laddas från ett API. Exakt format specificeras den 17 nov, men data som finns för varje challenge är:
+        Titel
+        Beskrivning
+        Typ (online/on-site)
+        Minsta antal deltagare
+        Högsta antal deltagare
+        Rating (siffra 0-5)
+        URL till bild
+        Etiketter
+    Data från API ska användas för att bygga upp “korten” för rummen i DOM
+        Dels på startsidan där de tre med högst rating ska visas
+        Dels på en ny sida där alla ska visas
+
+        * Vi kommer ta emot data från ett API som vi får på 2022-11-17 eftermiddag.
+        * APIt kommer skicka med uppgifter om olika challenges som finns att boka på ESC-rooms.
+        * Varje challenge är unik och kommer att ha olika uppgifter, som uppdateras dynamiskt via API. (dvs att challenges inte kommer vara statiskt definierade)
+
+        challenge = {
+            title: 
+            description:
+        }
+
+
