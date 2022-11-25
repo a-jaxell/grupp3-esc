@@ -6,4 +6,5 @@ import ChallengeList from "./ChallengeList.js";
   const ul = await challengeList.render();
   ul.className = "challenge-list";
   container.prepend(ul);
+  console.log("HELLO");
 })();
