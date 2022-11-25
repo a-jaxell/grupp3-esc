@@ -71,6 +71,10 @@ class StringFilter{
         // En uppgradering kan vara att ändra koden till att dela upp hela textsträngen i
         // ord och spara dem i en array och sen matcha varje element i arrayen mot
         // titel description
+        // case sensitive
+        // .toUpperCase // .toLowerCase
+
+        // använda sig av .slice
 
         if(challenge.data.title.includes(this.filterText) || challenge.data.description.includes(this.filterText)){
             return true;
@@ -128,6 +132,7 @@ class TypeFilter{
 class LabelFilter{
     constructor(list){
         this.list = list;
+        this.tempData = [];
     }
 
     // TODO: kolla hur man kan skriva om det med Array.filter();
@@ -141,24 +146,30 @@ class LabelFilter{
     }
 
 
-    getLabels(allChallenges){                     
-        let tempData = [];
+    getLabels(allChallenges){         
+
             for(i = 0; allChallenges.length; i++){
-                
-                for(j = 0; j < allChallenges[i].labels.length; j++){
-                    
+                     
                     allChallenges[i].labels.forEach( element => {
                         if(!tempData.includes(element)){
                             tempData.push(element)
                         }
-                        return tempData;
                     })
-                }
             }
     }
 
     render(){
         
+        const labelSection = document.createElement('div');
+        labelSection.className = 'labelSection';
+        
+        const labelButton = document.createElement('span');
+        
+        this.tempData.forEach(element => {
+            labelSection.append(labelButton)
+            labelButton.innerHtml = element;
+        })
+           
         // Här ska tagg-knappar renderas och få eventlisteners.
         // Det ska finnas en uppsättning knappar som är unika. 
         // är de nedtryckta ska de visas som grå.
