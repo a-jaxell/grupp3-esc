@@ -66,6 +66,12 @@ class StringFilter{
     }
 
     challengeMatch(challenge){
+
+        // I nuläget matchas hela textsträngen sparad i this.filterText
+        // En uppgradering kan vara att ändra koden till att dela upp hela textsträngen i
+        // ord och spara dem i en array och sen matcha varje element i arrayen mot
+        // titel description
+
         if(challenge.data.title.includes(this.filterText) || challenge.data.description.includes(this.filterText)){
             return true;
         } else {
@@ -107,6 +113,9 @@ class TypeFilter{
         inputOnline.isChecked = true;
         inputOnsite.isChecked = true;
 
+
+        // .isChecked returnerar true/false om boxen är tickad
+
         inputOnline.addEventListener('change', (event) => {
             return event.target.isChecked;
                 });
@@ -136,14 +145,16 @@ class LabelFilter{
         let tempData = [];
             for(i = 0; allChallenges.length; i++){
                 
-                for(i=0; i < allChallenges.labels.length; i++){
+                for(j = 0; j < allChallenges[i].labels.length; j++){
                     
-                    if(!tempData.includes(challenges.labels[i])){
-                        tempData.push(challenges.labels[i])
+                    allChallenges[i].labels.forEach( element => {
+                        if(!tempData.includes(element)){
+                            tempData.push(element)
                         }
-                    }
+                        return tempData;
+                    })
                 }
-        return tempData;
+            }
     }
 
     render(){
