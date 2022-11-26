@@ -6,5 +6,4 @@ import {ChallengeList} from "./ChallengeList.js";
   const challengeList = new ChallengeList();
   const ctr = await challengeList.render();
   body.insertBefore(ctr, footer);
-  console.log("HELLO");
 })();
