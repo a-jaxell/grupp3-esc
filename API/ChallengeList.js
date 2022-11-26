@@ -1,36 +1,46 @@
-import APIAdapter from "./APIadapter.js";
-import RatingFilter2 from "../FILTERS/RatingFilter2.js";
+import { APIAdapter } from "./APIadapter.js";
+import { RatingFilter } from "../FILTERS/RatingFilter.js";
 
-export default class ChallengeList {
-    challenges;
-    ratingFilter2;
+export class ChallengeList {
+  async render() {
+    const api = new APIAdapter();
 
-    async render() {    
-        const api = new APIAdapter();
-        const challenges = await api.loadChallenges();
+    //array challenges contains unique Challenge Objects from API. They contain unique challenge-data
+    //and the ability to render() themselves, that is to create a DOM-representation of themselves.
+    const challenges = await api.loadChallenges();
 
-        const container = document.createElement('div');
+    challenges.forEach((element) => {
+      console.log(element.data.rating);
+    });
 
-        this.ratingFilter2 = new RatingFilter2(this);
-        const filterInterface = this.ratingFilter2.render();
-        container.append(filterInterface);
+    // <section class="challenges">
+    // <h2>Our challenges</h2>
+    // <button class="">Filter challenges</button>
+    // </section>
 
+    const ctr = document.createElement("section");
+    ctr.className = "challenges";
 
-        this.ul = document.createElement('ul');
-        container.append(this.ul);
+    const h2 = document.createElement("h2");
+    h2.innerHTML = "Our challenges";
 
-        this.challenges = challenges;
-        this.update();
-        return container;
-    };
+    const ul = document.createElement("ul");
+    ul.className = "challenge-list";
 
-    update() {
-        this.ul.innerHTML = '';
-        for (let i = 0; i < this.challenges.length; i++) {
-            if (this.ratingFilter2.challengeMatch(this.challenges[i])) {
-              const li = this.challenges[i].render();
-              this.ul.append(li);
-            }
-          }
+    const ratingFilter = new RatingFilter();
+    const filterInterface = ratingFilter.render();
+
+    ctr.append(h2);
+    ctr.append(ul);
+    ctr.append(filterInterface);
+
+    for (let i = 0; i < challenges.length; i++) {
+      if (ratingFilter.challengeDoesMatch(challenges[i])) {
+        const li = challenges[i].render();
+        ul.append(li);
       }
+    }
+
+    return ctr;
+  }
 }

@@ -1,10 +1,10 @@
-import ChallengeList from "./ChallengeList.js";
+import {ChallengeList} from "./ChallengeList.js";
     
 (async () => {
-  const container = document.querySelector(".challenges");
+  const body = document.querySelector('body');
+  const footer = document.querySelector('footer');
   const challengeList = new ChallengeList();
-  const ul = await challengeList.render();
-  ul.className = "challenge-list";
-  container.prepend(ul);
+  const ctr = await challengeList.render();
+  body.insertBefore(ctr, footer);
   console.log("HELLO");
 })();
