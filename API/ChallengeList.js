@@ -24,23 +24,29 @@ export class ChallengeList {
     const h2 = document.createElement("h2");
     h2.innerHTML = "Our challenges";
 
-    const ul = document.createElement("ul");
-    ul.className = "challenge-list";
+    this.ratingFilter = new RatingFilter(this);
+    const filterInterface = this.ratingFilter.render();
 
-    const ratingFilter = new RatingFilter();
-    const filterInterface = ratingFilter.render();
+    this.ul = document.createElement("ul");
+    this.ul.className = "challenge-list";
 
     ctr.append(h2);
-    ctr.append(ul);
     ctr.append(filterInterface);
+    ctr.append(this.ul);
+    this.challenges = challenges;
 
-    for (let i = 0; i < challenges.length; i++) {
-      if (ratingFilter.challengeDoesMatch(challenges[i])) {
-        const li = challenges[i].render();
-        ul.append(li);
-      }
-    }
+    this.update();
 
     return ctr;
+  }
+
+  update() {
+    this.ul.innerHTML = '';
+    for (let i = 0; i < this.challenges.length; i++) {
+      if (this.ratingFilter.challengeDoesMatch(this.challenges[i])) {
+        const li = this.challenges[i].render();
+        this.ul.append(li);
+      }
+    }
   }
 }

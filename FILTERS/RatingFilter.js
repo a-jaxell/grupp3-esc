@@ -1,11 +1,10 @@
 export class RatingFilter {
-  constructor() {
+  constructor(listObj) { //passing in a reference to the classList object that calls this constructor
     this.minRating = 0;
+    this.list = listObj; 
   }
 
   challengeDoesMatch(challenge) { //recieves a Challenge object. 
-    //Checks the data of that Challenge to evaluate if it's rating is true
-    //when compared with this.minRating
     if (challenge.data.rating >= this.minRating) {
       return true;
     } else {
@@ -18,6 +17,11 @@ export class RatingFilter {
     input.type = 'range';
     input.min = 0;
     input.max = 5;
+    input.value = 0;
+    input.addEventListener('change', (ev) => {
+        this.minRating = ev.target.value;
+        this.list.update();
+    });
     return input;
   }
 }
