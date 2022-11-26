@@ -31,14 +31,17 @@ export class LabelFilter{
         
         const labelSection = document.createElement('div');
         labelSection.className = 'labelSection';
-        
-        const labelButton = document.createElement('span');
-        
-        this.tempData.forEach(element => {
-            labelSection.append(labelButton)
-            labelButton.innerHtml = element;
-        })
-           
+    
+        // itererar genom den temporära Arrayen och skapar en 
+        // knapp med texten i array[i]
+        // Kanske går att förenkla med array metoder.
+
+        for(let i = 0; i <tempData.length; i++){
+            const labelButton = document.createElement('span');
+            labelSection.append(labelButton);
+            labelButton.innerText = tempData[i];
+        };
+         
         // Här ska tagg-knappar renderas och få eventlisteners.
         // Det ska finnas en uppsättning knappar som är unika. 
         // är de nedtryckta ska de visas som grå.
