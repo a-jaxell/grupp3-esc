@@ -23,7 +23,7 @@ export class FilterCollection {
 
         render() {
             const container = document.createElement('section');
-            container.className = 'filtChallenges';
+            container.className = 'filters';
 
             const button = document.createElement('button');
             button.className = 'filters-toggle';
