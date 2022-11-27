@@ -22,12 +22,19 @@ export class FilterCollection {
         }
 
         render() {
-
-            //Skapar en container och kallar på varje filters input egna rendering och lägger till dem i containern.
-
+            const button = document.createElement('button');
+            button.className = 'challenge-filters-toggle';
+            button.innerText = 'Filter Challenges';
             const container = document.createElement('div');
+            container.className = 'FilterMenu';
+            
+            container.append(button);
+            //Kallar på varje filters egna rendering och lägger till dem i containern.
             this.filters.forEach(filter => container.append(filter.render()));
             return container;
+        }
+
+        renderFilterMenu() {
         }
     
 }
