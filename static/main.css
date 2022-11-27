@@ -484,3 +484,12 @@ footer a:hover {
     grid-column: 10/12;
   }
 }
+
+.filter-menu {
+  display: none;
+}
+
+.filter-menu.open {
+  display: block;
+  background-color: pink;
+}

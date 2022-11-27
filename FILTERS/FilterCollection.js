@@ -22,15 +22,25 @@ export class FilterCollection {
         }
 
         render() {
+            const container = document.createElement('section');
+            container.className = 'filtChallenges';
+
             const button = document.createElement('button');
-            button.className = 'challenge-filters-toggle';
+            button.className = 'filters-toggle';
             button.innerText = 'Filter Challenges';
-            const container = document.createElement('div');
-            container.className = 'FilterMenu';
+
+            const filterMenu = document.createElement('div');
+            filterMenu.className = 'filter-menu';
+
+/*             document.querySelector('.main-nav-toggle').addEventListener('click', () => {
+                document.querySelector('.main-nav').classList.toggle('open');
+            }) */
             
-            container.append(button);
             //Kallar på varje filters egna rendering och lägger till dem i containern.
-            this.filters.forEach(filter => container.append(filter.render()));
+            this.filters.forEach(filter => filterMenu.append(filter.render()));
+            container.append(button);
+            container.append(filterMenu);
+
             return container;
         }
 
