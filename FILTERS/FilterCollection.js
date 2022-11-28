@@ -1,4 +1,5 @@
 import {RatingFilter} from "./RatingFilter.js";
+import {RatingFilter2} from "./RatingFilter2.js";
 // import {TypeFilter} from "./TypeFilter.js";
 // import {LabelFilter} from "./LabelFilter.js"; 
 // import {StringFilter} from "./StringFilter";
@@ -8,6 +9,7 @@ export class FilterCollection {
             this.list = list;
             this.filters = [
                 new RatingFilter(list),
+                new RatingFilter2(list),
                 // new StringFilter(list),
                 // new TypeFilter(list),
                 // new LabelFilter(list),
