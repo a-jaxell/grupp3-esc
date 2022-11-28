@@ -1,0 +1,22 @@
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.filters-toggle {
+    display: block;
+}
+
+.filter-menu{
+    display: none;
+}
+
+.filter-menu.open {
+        display: block;
+        background-color: pink;
+        width: 80%;
+}
+

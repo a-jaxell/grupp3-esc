@@ -1,19 +1,18 @@
-export default class Challenge {
-    obj;
-    constructor(apiObj) {
-        this.obj = apiObj;
+export class Challenge {
+    constructor(data) {
+        this.data = data;
     }
     render() { //render = framställa 
                 
         let item = document.createElement("li");
         
         let img = document.createElement("img");
-        img.setAttribute("src", this.obj.image);
+        img.setAttribute("src", this.data.image);
         img.className = "challenge-image"   
 
         let title = document.createElement("h3");
         title.className = "challenge-title";
-        title.innerHTML = `${this.obj.title} (${this.obj.type})`;
+        title.innerHTML = `${this.data.title} (${this.data.type})`;
         
         let rating = document.createElement("ul") // alvars funktion
         rating.className = "rating";    
@@ -26,15 +25,15 @@ export default class Challenge {
         //tillfälli 
         let participants = document.createElement("small");
         participants.className = "challenge-meta";
-        participants.innerHTML = `${this.obj.minParticipants}-${this.obj.maxParticipants} participants`;
+        participants.innerHTML = `${this.data.minParticipants}-${this.data.maxParticipants} participants`;
         
         let description = document.createElement("p");
         description.className = "challenge-description";
-        description.innerHTML = this.obj.description    
+        description.innerHTML = this.data.description    
 
         let KNAPP = document.createElement("button");
         KNAPP.className = "button primary";
-        KNAPP.setAttribute("id", this.obj.id);
+        KNAPP.setAttribute("id", this.data.id);
         KNAPP.innerHTML = "Book this room";
           
         item.setAttribute("class", "challenge-item");
@@ -45,8 +44,8 @@ export default class Challenge {
         item.appendChild(description);
         item.appendChild(KNAPP);
         return item;
-    };
-};
+    }
+}
 
 
 
