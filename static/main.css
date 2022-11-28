@@ -524,6 +524,16 @@ footer a:hover {
   font-family: Verdana;
   font-size: 30px;
   color: #E3170A;
+  transition: 0.2 ease;
+}
+
+.star-rating label:hover {
+  color: rgb(133, 25, 25);
+  transition: 0.2 ease;
+}
+
+.star-rating label:active::before {
+  transform: scale(1.1);
 }
 
 .star-rating label::before {
