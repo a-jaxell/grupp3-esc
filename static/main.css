@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 html, body {
   margin: 0;
@@ -518,6 +519,9 @@ footer a:hover {
   color: orange;
 }
 
-.star-rating input:checked ~ label:before {
-  content: "2606";
+.star-rating label::before {
+  content: "☆";
+  position: relative;
+  top: 0px;
+  line-height: 26px;
 }
