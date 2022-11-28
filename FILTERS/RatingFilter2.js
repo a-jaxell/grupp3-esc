@@ -16,7 +16,6 @@ export class RatingFilter2 {
 
   render() {
 
-
     const starRating = document.createElement('div');
     starRating.className = 'star-rating';
 
@@ -66,6 +65,36 @@ export class RatingFilter2 {
     starRating.append(inputD, labelD);
     starRating.append(inputE, labelE);
 
+    const checkedStars = [inputE, inputD, inputC, inputB, inputA]; 
+    starRating.addEventListener('change', ()=> {
+        let highestVal = 0;
+        for (let i = 0 ; i < checkedStars.length; i++) {
+            if (checkedStars[i].checked && checkedStars[i].value >= highestVal){
+                highestVal = checkedStars[i].value;
+            }
+        }
+        this.minRating = highestVal;
+        this.list.update();
+    });
+
+    
+
+    // render() {
+    //     const input = document.createElement('input');
+    //     input.type = 'range';
+    //     input.min = 0;
+    //     input.max = 5;
+    //     input.value = 0;
+    //     input.addEventListener('change', (ev) => {
+    //         this.minRating = ev.target.value;
+    //         this.list.update();
+    //     });
+    //     return input;
+    //   }
+    
+
+
     return starRating;
   }
+  
 }

@@ -503,7 +503,7 @@ footer a:hover {
 
 .filter-menu.open {
   display: block;
-  background-color: pink;
+  border: 1px solid rgb(165, 165, 165);
   width: 80%;
 }
 
