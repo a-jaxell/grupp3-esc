@@ -505,3 +505,19 @@ footer a:hover {
   background-color: pink;
   width: 80%;
 }
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating > label {
+  width: 30px;
+  height: 30px;
+  font-family: Verdana;
+  font-size: 30px;
+  color: orange;
+}
+
+.star-rating input:checked ~ label:before {
+  content: "2606";
+}

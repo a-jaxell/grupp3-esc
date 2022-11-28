@@ -1,5 +1,15 @@
-.star-rating input:checked ~ label:before {
-    content: '2605'; //The content value of \2605 causes the :before element of an affected label to show up as a solid star.
+
+
+.star-rating input {
+    display:none;
+}
+
+.star-rating > label{
+    width: 30px;
+    height: 30px;
+    font-family: Verdana;
+    font-size: 30px;
+    color:orange;
 }
 
 //The tilda (~) is known as a subsequent sibling combinator. In this case, it acts on sibling elements that come after the checked input element.
@@ -7,6 +17,6 @@
 //So in this case, our new rule acts on label elements that come after the checked input element.
 //Since our second label comes right after the second checked input element, it is affected by this rule. 
 //As a result, its :before star’s content attribute is set to \2605, which corresponds to a solid star.
-.star-rating input:checked ~ label:before { 
-
+.star-rating input:checked ~ label:before {
+    content: '2606'; //The content value of \2605 causes the :before element of an affected label to show up as a solid star.
 }
