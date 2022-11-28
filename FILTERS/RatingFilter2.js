@@ -32,22 +32,39 @@ export class RatingFilter2 {
     inputB.setAttribute('type', 'radio');
     inputB.setAttribute('name', 'stars');
     inputB.setAttribute('id','star-b');
-    inputB.setAttribute('value','5');
+    inputB.setAttribute('value','4');
     const labelB = document.createElement('label');
     labelB.setAttribute('for','star-b');
 
     const inputC = document.createElement('input');
     inputC.setAttribute('type', 'radio');
-    inputC.setAttribute('checked', 'true');
     inputC.setAttribute('name', 'stars');
     inputC.setAttribute('id','star-c');
-    inputC.setAttribute('value','5');
+    inputC.setAttribute('value','3');
     const labelC = document.createElement('label');
     labelC.setAttribute('for','star-c');
+
+    const inputD = document.createElement('input');
+    inputD.setAttribute('type', 'radio');
+    inputD.setAttribute('name', 'stars');
+    inputD.setAttribute('id','star-d');
+    inputD.setAttribute('value','2');
+    const labelD = document.createElement('label');
+    labelD.setAttribute('for','star-d');
+
+    const inputE = document.createElement('input');
+    inputE.setAttribute('type', 'radio');
+    inputE.setAttribute('name', 'stars');
+    inputE.setAttribute('id','star-e');
+    inputE.setAttribute('value','1');
+    const labelE = document.createElement('label');
+    labelE.setAttribute('for','star-e');
 
     starRating.append(inputA, labelA);
     starRating.append(inputB, labelB);
     starRating.append(inputC, labelC);
+    starRating.append(inputD, labelD);
+    starRating.append(inputE, labelE);
 
     return starRating;
   }

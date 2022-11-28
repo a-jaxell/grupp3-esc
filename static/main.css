@@ -507,6 +507,13 @@ footer a:hover {
   width: 80%;
 }
 
+.star-rating {
+  display: flex;
+  align-items: center;
+  width: 160px;
+  flex-direction: row-reverse;
+}
+
 .star-rating input {
   display: none;
 }
@@ -516,7 +523,7 @@ footer a:hover {
   height: 30px;
   font-family: Verdana;
   font-size: 30px;
-  color: orange;
+  color: #E3170A;
 }
 
 .star-rating label::before {
