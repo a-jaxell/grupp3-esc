@@ -1,26 +1,48 @@
-import APIAdapter from "./APIadapter.js";
+import { APIAdapter } from "./APIadapter.js";
+import { FilterCollection } from "../FILTERS/FilterCollection.js";
 
-export default class ChallengeList {
-    challenges;
-    filters;
+export class ChallengeList {
+  async render() {
+    const api = new APIAdapter();
 
-    async render() {    
-        const api = new APIAdapter();
-        this.challenges = await api.loadChallenges();
+    //array challenges contains unique Challenge Objects from API. They contain unique challenge-data
+    //and the ability to render() themselves, that is to create a DOM-representation of themselves.
+    const challenges = await api.loadChallenges();
 
-        this.filters = new Filters(this);
+    // <section class="challenges">
+    // <h2>Our challenges</h2>
+    // <button class="">Filter challenges</button>
+    // </section>
 
+    const ctr = document.createElement("section");
+    ctr.className = "challenges";
 
+    const h2 = document.createElement("h2");
+    h2.innerHTML = "Our challenges";
 
-        const ul = document.createElement('ul');
-        
-        // for (let i = 0; i < this.challenges.length; i++) {
-        //     const li = this.challenges[i].render(); 
-        //     ul.append(li);
-        // };
-        // return ul;
+    this.filterCollection = new FilterCollection(this);
+    const filterInterface = this.filterCollection.render();
 
-        challenges.forEach(challenge => ul.append(challenge.render()));
-        return ul;
-    };
-};
+    this.ul = document.createElement("ul");
+    this.ul.className = "challenge-list";
+
+    ctr.append(h2);
+    ctr.append(filterInterface);
+    ctr.append(this.ul);
+    this.challenges = challenges;
+
+    this.update();
+
+    return ctr;
+  }
+
+  update() {
+    this.ul.innerHTML = '';
+    for (let i = 0; i < this.challenges.length; i++) {
+      if (this.filterCollection.challengeDoesMatch(this.challenges[i])) {
+        const li = this.challenges[i].render();
+        this.ul.append(li);
+      }
+    }
+  }
+}
