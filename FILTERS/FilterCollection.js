@@ -1,5 +1,5 @@
-import {RatingFilter} from "./RatingFilter.js";
-import {RatingFilter2} from "./RatingFilter2.js";
+import {RatingFilter} from "./RatingFilter/RatingFilter.js";
+import {RatingFilter2} from "./RatingFilter/RatingFilter2.js";
 // import {TypeFilter} from "./TypeFilter.js";
 // import {LabelFilter} from "./LabelFilter.js"; 
 // import {StringFilter} from "./StringFilter";
