@@ -1,4 +1,4 @@
-.star-rating {
+.star-rating .lineOfStars {
     display: flex;
     align-items: center;
     width: 160px;
@@ -9,7 +9,7 @@
     display:none;
 }
 
-.star-rating > label{
+.star-rating label{
     width: 30px;
     height: 30px;
     font-family: Verdana;

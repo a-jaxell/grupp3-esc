@@ -507,7 +507,7 @@ footer a:hover {
   width: 80%;
 }
 
-.star-rating {
+.star-rating .lineOfStars {
   display: flex;
   align-items: center;
   width: 160px;
@@ -518,7 +518,7 @@ footer a:hover {
   display: none;
 }
 
-.star-rating > label {
+.star-rating label {
   width: 30px;
   height: 30px;
   font-family: Verdana;
