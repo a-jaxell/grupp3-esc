@@ -1,43 +1,44 @@
-// export class LabelFilter{
-//     constructor(list){
-//         this.list = list;
-//         this.tempData = [];
-//     }
+export class LabelFilter{
+    constructor(list){
+        this.list = list;
+        this.tempData = [];
+    }
+    
+    // TODO: kolla hur man kan skriva om det med Array.filter();
+    // Ska skriva ut alla unikaLabels som finns i datan
 
-//     // TODO: kolla hur man kan skriva om det med Array.filter();
-//     // Ska skriva ut alla unikaLabels som finns i datan
+    challengeDoesMatch(challenge){
 
-//     challengeMatch(){
+            document.querySelectorAll('.label').isChecked      
 
-//         // Välja alla tagg-knappar
-//         // Kolla ifall de är nedtryckta
-//         // Visa de rum som matchar nedtryckta knappar
-//     }
+        // Välja alla tagg-knappar
+        // Kolla ifall de är nedtryckta
+        // Visa de rum som matchar nedtryckta knappar
+    }
 
-
-//     getLabels(allChallenges){         
-
-//             for(i = 0; allChallenges.length; i++){
-                     
-//                     allChallenges[i].labels.forEach( element => {
-//                         if(!tempData.includes(element)){
-//                             tempData.push(element)
-//                         }
-//                     })
-//             }
-//     }
-
-//     render(){
-        
+    render(){
+        let tempData = ['banan','orange','pear'];
         const labelSection = document.createElement('div');
         labelSection.className = 'labelSection';
-    
+        
         // itererar genom den temporära Arrayen och skapar en 
         // knapp med texten i array[i]
         // Kanske går att förenkla med array metoder.
+        
+        // for(let i = 0; i < this.list.length; i++){
+        //     console.log('here');
+        //         this.list.challenges[i].labels.forEach( element => {
+        //             if(!tempData.includes(element)){
+        //                 tempData.push(element)
+        //             }
+        //             console.log(this.tempData);
+        //         })
+        // }
+        for(let i = 0; i < tempData.length; i++){
+         
+            const labelButton = document.createElement('input');
+            labelButton.type = 'radio';
 
-        for(let i = 0; i <tempData.length; i++){
-            const labelButton = document.createElement('span');
             labelSection.append(labelButton);
             labelButton.innerText = tempData[i];
         };
@@ -47,5 +48,5 @@
         // är de nedtryckta ska de visas som grå.
         // Vi kanske skulle kunna använda oss av radioknappar för detta. 
 
-//     }
-// }
+    }
+}
