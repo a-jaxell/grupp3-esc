@@ -27,8 +27,10 @@ export function createLineOfStars(ctr, arr, id, count) {
 
   lineOfStars.onclick = ('click', function(event) { //event delegation
     let element = event.target;
-    if(element.checked)
+    let nextSibling = element.nextSibling;
+    if(element.checked){
     console.log(`Clicked button: ${element}`);
+    nextSibling.checked = true;}
   });
 }
 
