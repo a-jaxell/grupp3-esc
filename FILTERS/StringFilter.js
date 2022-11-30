@@ -4,7 +4,7 @@
         this.filterText = '';
     }
 
-    challengeMatch(challenge){
+    challengeDoesMatch(challenge){
 
         // I nuläget matchas hela textsträngen sparad i this.filterText
         // En uppgradering kan vara att ändra koden till att dela upp hela textsträngen i
@@ -14,7 +14,6 @@
         // .toUpperCase // .toLowerCase
 
         // använda sig av .slice
-
         if(challenge.data.title.includes(this.filterText) || challenge.data.description.includes(this.filterText)){
             return true;
         } else {

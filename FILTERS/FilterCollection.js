@@ -12,12 +12,12 @@ export class FilterCollection {
                 // new TypeFilter(list),
                 // new LabelFilter(list),
             ];
-        }   
+        }
+
+        // Tar en challenge som parameter och kör varje filter i .filters arrayen
+        // och returnerar resultatet av dess filters egna match funktion på den challenge som ges till funktionen.
+        
         challengeDoesMatch(challenge){
-
-            // Tar en challenge som parameter och kör varje filter i .filters arrayen
-            // och returnerar resultatet av dess filters egna match funktion på den challenge som ges till funktionen.
-
             return this.filters.every(filter => filter.challengeDoesMatch(challenge));
         }
 
