@@ -12,6 +12,15 @@ export function createLineOfStars(ctr, arr, id, count) {
 
         const label = document.createElement("label"); //visual representation of the star
         label.setAttribute("for", `${id}-${i}`);
+        label.setAttribute("id", `${id}-${i}`);
+
+        label.addEventListener('click', () => {
+          if (input.checked) {
+            const checkedVal = Number(input.value);
+            console.log(checkedVal);
+          }
+        })
+
         lineOfStars.append(input, label);
       }
 
