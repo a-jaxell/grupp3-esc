@@ -8,6 +8,7 @@ export class ChallengeList {
     //array challenges contains unique Challenge Objects from API. They contain unique challenge-data
     //and the ability to render() themselves, that is to create a DOM-representation of themselves.
     const challenges = await api.loadChallenges();
+    this.challenges = challenges;
 
     // <section class="challenges">
     // <h2>Our challenges</h2>
@@ -29,7 +30,6 @@ export class ChallengeList {
     ctr.append(h2);
     ctr.append(filterInterface);
     ctr.append(this.ul);
-    this.challenges = challenges;
 
     this.update();
 
