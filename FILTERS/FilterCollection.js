@@ -1,6 +1,6 @@
 import {RatingFilter} from "./RatingFilter.js";
 // import {TypeFilter} from "./TypeFilter.js";
-// import {LabelFilter} from "./LabelFilter.js"; 
+import {LabelFilter} from "./LabelFilter.js"; 
 // import {StringFilter} from "./StringFilter";
 
 export class FilterCollection {
@@ -10,7 +10,7 @@ export class FilterCollection {
                 new RatingFilter(list),
                 // new StringFilter(list),
                 // new TypeFilter(list),
-                // new LabelFilter(list),
+                new LabelFilter(list),
             ];
         }   
         challengeDoesMatch(challenge){
