@@ -1,8 +1,7 @@
-import { requestAPI } from "./requestAPI.js";
 export class LabelFilter{
     constructor(list){
         this.list = list;
-        this.tempData = [];
+        this.labelButtons = [];
         // this.challenges = new ChallengeList;
     }
     
@@ -11,34 +10,39 @@ export class LabelFilter{
 
     challengeDoesMatch(challenge){
 
-            document.querySelectorAll('.label');      
+        const labelButtons = document.querySelectorAll('.labelButton');
+        // labelButtons.addEventListener('click');
+
+        if(labelButtons.isChecked){
+
+        }
 
         // Välja alla tagg-knappar
         // Kolla ifall de är nedtryckta
         // Visa de rum som matchar nedtryckta knappar
     }
     
-    render = async () => {
-        console.log(this.list.challenges);
-        const data = await requestAPI();
+    render(){
+        console.log(this.list.challenges[3].data.labels);
             // console.log(data.challenges);
         
              const labelSection = document.createElement('div');
              labelSection.className = 'labelSection';
             
-             for(let i = 0; i < data.challenges.length; i++){
-                data.challenges[i].labels.forEach(element => {
-                    if(!this.tempData.includes(element))
-                    {this.tempData.push(element)}
+             for(let i = 0; i < this.list.challenges.length; i++){
+                this.list.challenges[i].data.labels.forEach(element => {
+                    if(!this.labelButtons.includes(element)){
+                        this.labelButtons.push(element)
+                    }
                 });
             }
-            // console.log(this.tempData);
-            for(let i = 0; i < this.tempData.length; i++){
+            for(let i = 0; i < this.labelButtons.length; i++){
                 const labelButton = document.createElement('input');
                 labelButton.type = 'button';
-                labelButton.value = this.tempData[i];
+                labelButton.value = this.labelButtons[i];
                 labelSection.append(labelButton);
             }
+            console.log(labelSection);
             return labelSection;
         }
     }     
