@@ -1,7 +1,7 @@
  export class StringFilter{
     constructor(list){
         this.list = list;
-        this.filterText = '';
+        this.filterText = [];
     }
 
     challengeDoesMatch(challenge){
@@ -14,7 +14,9 @@
         // .toUpperCase // .toLowerCase
 
         // använda sig av .slice
-        if(challenge.data.title.includes(this.filterText) || challenge.data.description.includes(this.filterText)){
+        if(this.filterText.some(element => challenge.data.title.includes(element)) 
+        || this.filterText.some(element => challenge.data.description.includes(element)))
+        {
             return true;
         } else {
             return false;    
@@ -28,11 +30,11 @@
         const input = document.createElement('input');
         input.type = 'text';
         input.addEventListener('keyup', (event) => {
-            this.filterText = event.target.value;
+            this.filterText = event.target.value.split(' ');
+            console.log(this.filterText);
             this.list.update();
         
         });
-        console.log(input);
         return input;
     }
 }
