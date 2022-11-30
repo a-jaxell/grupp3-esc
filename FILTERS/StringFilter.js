@@ -4,18 +4,14 @@
         this.filterText = [];
     }
 
+        // Orden i this.filtertext matchas emot titel
+        // och description som även de konverterats till
+        // lowercase.
+
     challengeDoesMatch(challenge){
 
-        // I nuläget matchas hela textsträngen sparad i this.filterText
-        // En uppgradering kan vara att ändra koden till att dela upp hela textsträngen i
-        // ord och spara dem i en array och sen matcha varje element i arrayen mot
-        // titel description
-        // case sensitive
-        // .toUpperCase // .toLowerCase
-
-        // använda sig av .slice
-        if(this.filterText.some(element => challenge.data.title.includes(element)) 
-        || this.filterText.some(element => challenge.data.description.includes(element)))
+        if(this.filterText.some(element => challenge.data.title.toLowerCase().includes(element)) 
+        || this.filterText.some(element => challenge.data.description.toLowerCase().includes(element)))
         {
             return true;
         } else {
@@ -23,15 +19,17 @@
         }
     }
 
+        // Ett inputfält skapas och textsträngen konverteras till
+        // små bokstäver och sparas i this.filterText som sedan
+        // delas upp i enstaka ord med hjälp av .split.
+
     render() {
-        // Här ska ett inputfält renderas och skapa ett inputfält som vars värde 
-        // lagras i .filterText
-        
+
         const input = document.createElement('input');
         input.type = 'text';
         input.addEventListener('keyup', (event) => {
-            this.filterText = event.target.value.split(' ');
-            console.log(this.filterText);
+            this.filterText = event.target.value.toLowerCase();
+            this.filterText = this.filterText.split(' ');
             this.list.update();
         
         });
