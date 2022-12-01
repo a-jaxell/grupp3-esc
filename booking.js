@@ -3,23 +3,24 @@ import { secondPage } from "./create.js";
 
 queryJson();
 
-const takeData = async() => {
-    /* console.log(await queryJson("2022-12-12", 6));
-      const dataArray = await queryJson(
-          document.getElementById("date-input").value
-      ); */
-
-    /*             document.querySelector(".cardID") */
-    console.log(dataArray);
-
-    ["värde1", "värde2", "osv"];
-    for (let i = 0; i < dataArray.length; i++) {
+/* async function timesAvaliable = async(availTimes) => {
+    for (let i = 0; i < availTimes.length; i++) {
         const option = document.createElement("option");
         option.innerText = array[i];
         document.getElementById("time-input").appendChild(option);
     }
 };
 
+
+async function timesAvaliable() {
+    const times = await queryJson();
+    for (let i = 0; i < times.length; i++) {
+        const option = document.createElement("option");
+        option.innerText = array[i];
+        document.getElementById("time-input").appendChild(option);
+    }
+};
+ */
 const popOutButton = document.getElementById("bookingButton");
 
 const bg_container = document.querySelector(".booking-container");
@@ -66,7 +67,7 @@ function popOutNow() {
         const regex = /^\d{4}-\d{2}-\d{2}$/; //right format (yyyy-mm-dd)
         const date = new Date();
         const validDate = addOneYear(date);
-        console.log("ValidDate: ", validDate);
+        //console.log("ValidDate: ", validDate);
 
         const userInput = dateInput.value.trim();
         const inputDate = new Date(userInput);

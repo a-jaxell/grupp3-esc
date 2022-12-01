@@ -12,18 +12,12 @@ export const queryJson = async(date, challengeId) => {
 
     const jsonResponse = await res.json();
     const data = jsonResponse;
-    console.log(data);
+    // console.log(data);
 
     /*     { date: "2022-12-12T00:00:00.000Z", slots: Array }*/
-    console.log(data.slots);
+    // console.log(data.slots);
 
     /*     ["11:00", "12:30", "14:00", "15:30", "18:30", "20:00", "20:00"]
      */
     return data.slots;
-
-    test();
 };
-
-function test() {
-    console.log("export test");
-}
