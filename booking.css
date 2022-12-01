@@ -92,7 +92,7 @@ input {
     height: 50px;
     position: absolute;
     left: 120px;
-    top: 90px;
+    top: 80px;
 }
 
 .name-input {
@@ -109,7 +109,7 @@ input {
     height: 25px;
     position: absolute;
     left: 340px;
-    top: 90px;
+    top: 80px;
 }
 
 .email-input {
@@ -126,7 +126,7 @@ input {
     height: 50px;
     position: absolute;
     left: 120px;
-    top: 185px;
+    top: 175px;
 }
 
 .time-input {
@@ -143,7 +143,7 @@ input {
     height: 25px;
     position: absolute;
     left: 340px;
-    top: 185px;
+    top: 175px;
 }
 
 .participants {
