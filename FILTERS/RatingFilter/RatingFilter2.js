@@ -27,7 +27,7 @@ export class RatingFilter2 {
 
     const amountOfStars = 5;
 
-    createLineOfStars(starRating ,this.minStars, 'minStar', amountOfStars);
+    createLineOfStars(starRating ,this.minStars, 'minStar', amountOfStars, 'minStarBar');
     // createLineOfStars(this.maxStars, 'maxStar', amountOfStars);
 
     starRating.addEventListener("change", () => { //EvenListener added to outer container.
@@ -43,6 +43,8 @@ export class RatingFilter2 {
       this.minRating = highestVal;
       this.list.update();
     });
+
+    
 
     return starRating;
   }  
