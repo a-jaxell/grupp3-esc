@@ -61,6 +61,7 @@ popOutButton.addEventListener("click", popOutNow());
 function popOutNow() {
     document.getElementById("bookingButton").onclick = function() {
         document.querySelector(".booking-container").style.display = "flex";
+
         bg_container.appendChild(titleFirstPage);
         bg_container.appendChild(paragraphOne);
         bg_container.appendChild(dateInput);
@@ -92,6 +93,8 @@ function popOutNow() {
                 timeInput.add(new Option(element));
             });
         }
+
+        secondPage();
     }
 
     function okFormatAndTime(availTimes) {

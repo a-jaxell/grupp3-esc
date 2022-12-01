@@ -52,10 +52,10 @@ completedLink.innerText = "Back to booking";
 completedLink.href = "https://www.google.com/";
 
 export function secondPage() {
-    /*  bg_container.removeChild(titleFirstPage);
-            bg_container.removeChild(paragraphOne);
-              bg_container.removeChild(dateButton); */
-    bg_container.innerHTML = "";
+    bg_container.removeChild(titleSecondPage);
+    bg_container.removeChild(paragraphOne);
+    bg_container.removeChild(dateButton);
+
     //
     bg_container.appendChild(titleSecondPage);
     bg_container.appendChild(nameHeader);
