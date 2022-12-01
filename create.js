@@ -1,3 +1,7 @@
+const popOutButton = document.getElementById("bookingButton");
+
+const bg_container = document.querySelector(".booking-container");
+
 let titleSecondPage = document.createElement("h1");
 titleSecondPage.className = "title-secondPage";
 titleSecondPage.innerText = "Step two of booking";
@@ -49,8 +53,8 @@ completedLink.href = "https://www.google.com/";
 
 export function secondPage() {
     /*  bg_container.removeChild(titleFirstPage);
-        bg_container.removeChild(paragraphOne);
-          bg_container.removeChild(dateButton); */
+            bg_container.removeChild(paragraphOne);
+              bg_container.removeChild(dateButton); */
     bg_container.innerHTML = "";
     //
     bg_container.appendChild(titleSecondPage);
