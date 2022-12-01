@@ -1,5 +1,5 @@
 import { queryJson } from "./bookingAPI.js";
-import { secondPage } from "./create.js";
+import { secondPage } from "./secondPage.js";
 
 queryJson();
 
@@ -94,7 +94,7 @@ function popOutNow() {
             });
         }
 
-        secondPage();
+        //secondPage();
     }
 
     function okFormatAndTime(availTimes) {
