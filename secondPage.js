@@ -42,12 +42,10 @@ let detailsButton = document.createElement("button");
 detailsButton.className = "details-button";
 detailsButton.innerText = "Click to proceed";
 
-function createElement(elementType, className, innerText) {}
-
 export function secondPage() {
     /* bg_container.removeChild(titleSecondPage);
-        bg_container.removeChild(paragraphOne);
-        bg_container.removeChild(dateButton); */
+              bg_container.removeChild(paragraphOne);
+              bg_container.removeChild(dateButton); */
 
     bg_container.innerHTML = "";
     //
@@ -64,31 +62,4 @@ export function secondPage() {
     bg_container.appendChild(detailsButton);
     //
     detailsButton.addEventListener("click", thirdPage);
-}
-
-let titleThirdPage = document.createElement("h1");
-titleThirdPage.className = "title-ThirdPage";
-titleThirdPage.innerHTML = "Thank you for booking";
-
-let completedLink = document.createElement("a");
-completedLink.className = "back-to-start";
-completedLink.innerText = "Back to booking";
-completedLink.href = "https://www.google.com/";
-
-function thirdPage() {
-    /* bg_container.removeChild(titleSecondPage);
-      bg_container.removeChild(nameHeader);
-    bg_container.removeChild(nameInput);
-    bg_container.removeChild(emailHeader);
-   bg_container.removeChild(emailInput);
-    bg_container.removeChild(timeHeader);
- bg_container.removeChild(timeInput);
- bg_container.removeChild(participantsHeader);
- bg_container.removeChild(participants);
-    bg_container.removeChild(detailsButton); */
-    bg_container.innerHTML = "";
-
-    //
-    bg_container.appendChild(titleThirdPage);
-    bg_container.appendChild(completedLink);
 }
