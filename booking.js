@@ -19,8 +19,8 @@ async function timesAvaliable() {
         option.innerText = array[i];
         document.getElementById("time-input").appendChild(option);
     }
-};
- */
+}; */
+
 const popOutButton = document.getElementById("bookingButton");
 
 const bg_container = document.querySelector(".booking-container");
@@ -37,11 +37,19 @@ let dateInput = document.createElement("input");
 dateInput.className = "date-input";
 dateInput.setAttribute("id", "date-input");
 dateInput.placeholder = "YYYY-MM-DD";
+
 /* dateInput.required = true;
         dateInput.setAttribute("pattern", "d{4}-(?:d{2}-){2}"); */
 let dateButton = document.createElement("button");
 dateButton.className = "dating-button";
 dateButton.innerText = "Search avaliable times";
+
+let timeInput = document.createElement("select");
+timeInput.className = "time-input";
+timeInput.setAttribute("id", "time-input");
+
+let timeOptions = document.createElement("option");
+timeOptions.setAttribute("id", "time-options");
 
 function returnText() {
     let input = document.getElementById("userInput").value;
@@ -56,7 +64,7 @@ function popOutNow() {
         bg_container.appendChild(titleFirstPage);
         bg_container.appendChild(paragraphOne);
         bg_container.appendChild(dateInput);
-        //
+        bg_container.appendChild(timeInput); //
         bg_container.appendChild(dateButton);
 
         /*  if (dateInput.match( ? pattern ? ) && dateButton.onclick()) {}return; */
