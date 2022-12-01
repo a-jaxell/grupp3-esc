@@ -1,15 +1,11 @@
-import {createLineOfStars} from "./functions/createLineOfStars.js";
-
+import {StarBar} from "./StarBar.js";
 
 export class RatingFilter2 {
-  minStars = [];
-  maxStars = [];
-
-
-  constructor(listObj) {
+  constructor(list) {
     //passing in a reference to the classList object that calls this constructor
     this.minRating = 0;
-    this.list = listObj;
+    this.maxRating = 0;
+    this.list = list; //has update function
   }
 
   challengeDoesMatch(challenge) {
@@ -22,30 +18,15 @@ export class RatingFilter2 {
   }
 
   render() {
-    const starRating = document.createElement("div"); //The outer container, will be returned from this function
-    starRating.className = "star-rating";
+    const ctr = document.createElement("div"); //The outer container, will be returned from this function
+    ctr.className = "star-rating";
+    const count = 5;
 
-    const amountOfStars = 5;
-
-    createLineOfStars(starRating ,this.minStars, 'minStar', amountOfStars, 'minStarBar');
-    // createLineOfStars(this.maxStars, 'maxStar', amountOfStars);
-
-    starRating.addEventListener("change", () => { //EvenListener added to outer container.
-      let highestVal = 0;
-      for (let i = 0; i < amountOfStars; i++) {
-        if (
-          this.minStars[i].checked &&
-          this.minStars[i].value >= highestVal
-        ) {
-          highestVal = this.minStars[i].value;
-        }
-      }
-      this.minRating = highestVal;
-      this.list.update();
-    });
-
-    
-
-    return starRating;
+    const starBar = new StarBar();
+    const minStarBar = starBar.render(count, this.minRating, this.list, "min");
+     // const maxStarBar = starbar.render(count, this.maxRating, this.list, "max");
+        
+     ctr.append(minStarBar);
+    return ctr;
   }  
 }
