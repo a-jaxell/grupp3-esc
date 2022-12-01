@@ -62,7 +62,7 @@ function popOutNow() {
     };
 
     async function evalInput() {
-        const regex = /^\d{4}-\d{2}-\d{2}$/; //right format
+        const regex = /^\d{4}-\d{2}-\d{2}$/; //right format (yyyy-mm-dd)
         const date = new Date();
         const validDate = addOneYear(date);
         console.log("ValidDate: ", validDate);
@@ -73,7 +73,7 @@ function popOutNow() {
         if (userInput.match(regex) === null) {
             console.log("You entered wrong format");
         } else if (inputDate > validDate) {
-            console.log("choose a date within the next year");
+            console.log("Choose a date within the next year");
         } else {
             const availTimes = await queryJson(userInput); // !availTimes.length === 0)
             okFormatAndTime(availTimes);
