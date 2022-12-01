@@ -1,5 +1,6 @@
 import { queryJson } from "./bookingAPI.js";
 import { secondPage } from "./secondPage.js";
+import { thirdPage } from "./thirdPage.js";
 
 queryJson();
 
@@ -48,8 +49,8 @@ let timeInput = document.createElement("select");
 timeInput.className = "time-input";
 timeInput.setAttribute("id", "time-input");
 
-let timeOptions = document.createElement("option");
-timeOptions.setAttribute("id", "time-options");
+// let timeOptions = document.createElement("option");
+// timeOptions.setAttribute("id", "time-options");
 
 function returnText() {
     let input = document.getElementById("userInput").value;
@@ -65,7 +66,7 @@ function popOutNow() {
         bg_container.appendChild(titleFirstPage);
         bg_container.appendChild(paragraphOne);
         bg_container.appendChild(dateInput);
-        bg_container.appendChild(timeInput);
+        //bg_container.appendChild(timeInput);
         bg_container.appendChild(dateButton);
 
         /*  if (dateInput.match( ? pattern ? ) && dateButton.onclick()) {}return; */
@@ -89,9 +90,10 @@ function popOutNow() {
             const availTimes = await queryJson(userInput); // !availTimes.length === 0)
             okFormatAndTime(availTimes);
 
-            availTimes.forEach((element) => {
-                timeInput.add(new Option(element));
-            });
+            /*  availTimes.forEach((element) => {
+                                        timeInput.add(new Option(element));
+                                    }); */
+            secondPage(availTimes);
         }
 
         //secondPage();

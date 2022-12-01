@@ -42,10 +42,10 @@ let detailsButton = document.createElement("button");
 detailsButton.className = "details-button";
 detailsButton.innerText = "Click to proceed";
 
-export function secondPage() {
+export function secondPage(availTimes) {
     /* bg_container.removeChild(titleSecondPage);
-              bg_container.removeChild(paragraphOne);
-              bg_container.removeChild(dateButton); */
+                      bg_container.removeChild(paragraphOne);
+                      bg_container.removeChild(dateButton); */
 
     bg_container.innerHTML = "";
     //
@@ -61,5 +61,9 @@ export function secondPage() {
     bg_container.appendChild(participants);
     bg_container.appendChild(detailsButton);
     //
-    detailsButton.addEventListener("click", thirdPage);
+    // detailsButton.addEventListener("click", thirdPage);
+
+    availTimes.forEach((element) => {
+        timeInput.add(new Option(element));
+    });
 }
