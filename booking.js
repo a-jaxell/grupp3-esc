@@ -4,10 +4,10 @@ import { secondPage } from "./create.js";
 queryJson();
 
 const takeData = async() => {
-    console.log(await queryJson("2022-12-12", 6));
-    const dataArray = await queryJson(
-        document.getElementById("date-input").value
-    );
+    /* console.log(await queryJson("2022-12-12", 6));
+      const dataArray = await queryJson(
+          document.getElementById("date-input").value
+      ); */
 
     /*             document.querySelector(".cardID") */
     console.log(dataArray);
