@@ -21,9 +21,17 @@ export class StarBar {
       label.setAttribute("id", `${type}-${i}`);
 
       label.addEventListener("click", () => {
-        console.log(input.value);
-        this.ratingFilter.minRating = input.value;
-        this.list.update();
+        if (!input.checked) {
+          console.log(input.value);
+          this.ratingFilter.minRating = input.value;
+          this.list.update();
+          const findItem = this.arr.find(o => o.value === input.value);
+          console.log(findItem.value);
+        } 
+        else {
+          const findItem = this.arr.find(o => o.value === input.value);
+          console.log(findItem.value);
+        }
       });
       starBar.append(input, label);
     }
