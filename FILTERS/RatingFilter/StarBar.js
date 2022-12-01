@@ -1,6 +1,6 @@
 export class StarBar {
-  render(count, rating, list, type) {
-    this.rating = rating;
+  render(count, ratingFilter, list, type) {
+    this.ratingFilter = ratingFilter;
     this.list = list;
     this.arr = [];
 
@@ -22,6 +22,7 @@ export class StarBar {
 
       label.addEventListener("click", () => {
         console.log(input.value);
+        this.ratingFilter.minRating = input.value;
         this.list.update();
       });
       starBar.append(input, label);

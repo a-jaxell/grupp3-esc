@@ -17,16 +17,28 @@ export class RatingFilter2 {
     }
   }
 
+  setMinRating(val) {
+    this.minRating = val;
+  }
+
+  setMaxRating(val) {
+    this.maxRating = val;
+  }
+
   render() {
     const ctr = document.createElement("div"); //The outer container, will be returned from this function
     ctr.className = "star-rating";
     const count = 5;
 
     const starBar = new StarBar();
-    const minStarBar = starBar.render(count, this.minRating, this.list, "min");
+    const minStarBar = starBar.render(count, this, this.list, "min");
      // const maxStarBar = starbar.render(count, this.maxRating, this.list, "max");
-        
+     ctr.addEventListener('change', ()=> {
+      this.list.update();
+     })   
      ctr.append(minStarBar);
+     
     return ctr;
   }  
+
 }
