@@ -14,27 +14,18 @@ export class StarBar {
       input.setAttribute("id", `${type}-${i}`);
       input.setAttribute("value", [i]);
 
-      this.arr.push(input); //pushed here, so we can see which stars are checked
+      this.arr.push([i, input]); //pushed here, so we can see which stars are checked
 
       const label = document.createElement("label"); //visual representation of the star
       label.setAttribute("for", `${type}-${i}`);
       label.setAttribute("id", `${type}-${i}`);
 
       label.addEventListener("click", () => {
-        if (!input.checked) {
-          console.log(input.value);
-          this.ratingFilter.minRating = input.value;
-          this.list.update();
-          const findItem = this.arr.find(o => o.value === input.value);
-          console.log(findItem.value);
-        } 
-        else {
-          const findItem = this.arr.find(o => o.value === input.value);
-          console.log(findItem.value);
-        }
+        console.log(this.arr);
       });
       starBar.append(input, label);
     }
+    this.arr = this.arr.reverse();
     return starBar;
   }
 }
