@@ -1,4 +1,4 @@
-import { queryJson } from "./api.js";
+import { queryJson } from "./bookingAPI.js";
 
 queryJson();
 
