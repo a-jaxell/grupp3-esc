@@ -87,44 +87,12 @@ function popOutNow() {
         } else {
             const availTimes = await queryJson(userInput); // !availTimes.length === 0)
             okFormatAndTime(availTimes);
-            /* 
-                                                                              for (let i = 0; i < availTimes.length; i++) {
-                                                                                  timeOptions.innerText += availTimes[i];
-                                                                                  //document.query.appendChild(availTimes[i]);
-                                                                                  document.getElementById("time-options").appendChild(timeOptions);
-                                                                              } */
 
             availTimes.forEach((element) => {
                 timeInput.add(new Option(element));
-            }); // timeInput.appendChild()
+            });
         }
     }
-
-    /*  var states = new Array();
-          states["India"] = new Array("Andhra Pradesh", "Arunachal Pradesh");
-
-          function setStates() {
-              var newOptions = states["India"];
-              var newValues = states["India"];
-              selectField = document.getElementById("state");
-              selectField.options.length = 0;
-              for (i = 0; i < newOptions.length; i++) {
-                  selectField.options[selectField.length] = new Option(
-                      newOptions[i],
-                      newValues[i]
-                  );
-              }
-          } */
-    //Unhandled Promise Rejection: TypeError: Argument 1 ('node') to Node.appendChild must be an instance of Node
-
-    /*  async function timesAvaliable() {
-                                                                  const times = await queryJson();
-                                                                  for (let i = 0; i < times.length; i++) {
-                                                                      const option = document.createElement("option");
-                                                                      option.innerText = array[i];
-                                                                      document.getElementById("time-input").appendChild(option);
-                                                                  }
-                                                              }; */
 
     function okFormatAndTime(availTimes) {
         if (availTimes.length === 0) {
