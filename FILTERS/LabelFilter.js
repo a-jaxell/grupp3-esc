@@ -8,7 +8,7 @@ export class LabelFilter{
     // Matchar varje label i varje challenge emot en array som innehåller "nedtryckta" knappar
 
     challengeDoesMatch(challenge){
-        if(this.matchArray.some(ele => challenge.data.labels.includes(ele))){
+        if(this.matchArray.every(ele => challenge.data.labels.includes(ele))){
             return true;
         } else {
             return false;
