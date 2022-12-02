@@ -1,5 +1,3 @@
-const popOutButton = document.getElementById("bookingButton");
-
 const bg_container = document.querySelector(".booking-container");
 
 let titleSecondPage = document.createElement("h1");
@@ -12,6 +10,8 @@ nameHeader.innerText = "Name: ";
 
 let nameInput = document.createElement("input");
 nameInput.className = "name-input";
+nameInput.setAttribute("id", "name-input");
+nameInput.setAttribute("required", "");
 
 let emailHeader = document.createElement("h3");
 emailHeader.className = "email-header";
@@ -19,6 +19,8 @@ emailHeader.innerText = "E-mail: ";
 
 let emailInput = document.createElement("input");
 emailInput.className = "email-input";
+emailInput.setAttribute("id", "email-input");
+emailInput.setAttribute("required", "");
 
 let timeHeader = document.createElement("h3");
 timeHeader.className = "time-header";
@@ -45,8 +47,8 @@ detailsButton.innerText = "Click to proceed";
 
 export function secondPage(availTimes) {
     /* bg_container.removeChild(titleSecondPage);
-                                    bg_container.removeChild(paragraphOne);
-                                    bg_container.removeChild(dateButton); */
+                                                                            bg_container.removeChild(paragraphOne);
+                                                                            bg_container.removeChild(dateButton); */
 
     bg_container.innerHTML = "";
     //
@@ -67,4 +69,55 @@ export function secondPage(availTimes) {
     availTimes.forEach((element) => {
         timeInput.add(new Option(element));
     });
+
+    submitPost();
 }
+//Unhandled Promise Rejection: TypeError: undefined is not a function (near '...secondPage.apply.addEventListener...')
+function submitPost(params) {
+    detailsButton.addEventListener("submit", (e) => {
+        if (document.getElementById("name-input").value.length == 0) {
+            alert("input name");
+        }
+        if (document.getElementById("email-input").value.length == 0) {
+            alert("input email");
+        }
+
+        let userName = bg_container.getElementById("").value;
+        let userEmail = bg_container.getElementById("body").value;
+
+        fetch(
+                "https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        challenge: 12,
+                        name: "Customer Name",
+                        email: "name@example.com",
+                        date: "2022-12-12",
+                        time: "18:30",
+                        participants: 4,
+                    }),
+                    headers: {
+                        "Content-Type": "application/json;charset=UTF-8",
+                    },
+                }
+            )
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                thirdPage();
+            });
+
+        e.preventDefault();
+    });
+}
+
+//function secondPagePost(params) {
+// User fills in Name
+// User fills in Email
+// User chooses a time for when they can do the challenge
+// User pick the number of participants that will be in the challenge
+// User then clicks the 'SUBMIT BOOKING' button to book the challenge.
+// All the info will then be sent as a HTTP (post request) to the API
+// The button click will also load page number three (thirdpage();)
+//}

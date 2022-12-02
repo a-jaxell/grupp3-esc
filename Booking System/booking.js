@@ -82,16 +82,17 @@ function popOutNow() {
         const inputDate = new Date(userInput);
 
         if (userInput.match(regex) === null) {
+            alert("You have entered the wrong format!");
             console.log("You entered wrong format");
         } else if (inputDate > validDate) {
+            alert("You must choose a date within the next year!");
             console.log("Choose a date within the next year");
         } else {
             const availTimes = await queryJson(userInput); // !availTimes.length === 0)
             okFormatAndTime(availTimes);
 
             /*  availTimes.forEach((element) => {
-                                                                      timeInput.add(new Option(element));
-                                                                  }); */
+              timeInput.add(new Option(element));}); */
             secondPage(availTimes);
         }
 
@@ -126,3 +127,10 @@ function popOutNow() {
 /* if (dateStr.match(regex) === null) {
             return false;
         } */
+
+/*  if (nameInput != 0) {
+    alert("input name")
+}
+if (emailInput) {
+    alert("input email")
+} */
