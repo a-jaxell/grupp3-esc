@@ -37,6 +37,7 @@ participantsHeader.innerText = "Participants:";
 
 let participants = document.createElement("select");
 participants.className = "participants";
+participants.setAttribute("id", "participants-input");
 
 let detailsButton = document.createElement("button");
 detailsButton.className = "details-button";
