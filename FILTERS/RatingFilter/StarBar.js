@@ -21,7 +21,11 @@ export class StarBar {
       label.setAttribute("id", `${type}-${i}`);
 
       label.addEventListener("click", () => {
-        console.log(this.arr);
+        input.checked;
+        if      (type === 'min') this.ratingFilter.setMinRating(input.value);
+        else if (type === 'max') this.ratingFilter.setMaxRating(input.value);
+        this.list.update();
+      
       });
       starBar.append(input, label);
     }

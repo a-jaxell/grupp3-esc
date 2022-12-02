@@ -10,7 +10,7 @@ export class RatingFilter2 {
 
   challengeDoesMatch(challenge) {
     //recieves a Challenge object.
-    if (challenge.data.rating >= this.minRating) {
+    if (challenge.data.rating >= this.minRating && challenge.data.rating <= this.maxRating) {
       return true;
     } else {
       return false;
@@ -20,9 +20,15 @@ export class RatingFilter2 {
   setMinRating(val) {
     this.minRating = val;
   }
-
+  getMinRating() {
+    return this.minRating;
+  }
+  
   setMaxRating(val) {
     this.maxRating = val;
+  }
+  getMaxRating(){
+    return this.maxRating;
   }
 
   render() {
@@ -32,11 +38,13 @@ export class RatingFilter2 {
 
     const starBar = new StarBar();
     const minStarBar = starBar.render(count, this, this.list, "min");
+    const maxStarBar = starBar.render(count, this, this.list, "max");
      // const maxStarBar = starbar.render(count, this.maxRating, this.list, "max");
      ctr.addEventListener('change', ()=> {
       this.list.update();
      })   
      ctr.append(minStarBar);
+     ctr.append(maxStarBar);
      
     return ctr;
   }  
