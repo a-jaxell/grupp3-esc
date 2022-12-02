@@ -14,4 +14,5 @@ import { TopThree } from "./TopThree.js";
     const array = [[4], [5], [3], [2], [1.5], [0], [2.5]];
     
     console.log(array.sort((a, b) => b - a));
-    challenge.data.rating.a
+    challenge.data.rating[i]
+    challenge

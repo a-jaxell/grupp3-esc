@@ -5,13 +5,15 @@ export class TopThree{
         this.list = list;
         this.api = new APIAdapter();
     }    
-
-    if(){
-
-    }
     
-    render() {
+    topThree(challenge){
         const challenges = this.api.loadChallenges();
-        console.log(challenges); 
+        challenges.sort((a, b))
+    }
+
+    render(challenge) {
+        console.log(challenges);
+
+        this[challenge].data.rating
     }
 }
