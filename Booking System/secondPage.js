@@ -47,8 +47,8 @@ detailsButton.innerText = "Click to proceed";
 
 export function secondPage(availTimes) {
     /* bg_container.removeChild(titleSecondPage);
-                                                                            bg_container.removeChild(paragraphOne);
-                                                                            bg_container.removeChild(dateButton); */
+                                                                                    bg_container.removeChild(paragraphOne);
+                                                                                    bg_container.removeChild(dateButton); */
 
     bg_container.innerHTML = "";
     //
@@ -74,7 +74,7 @@ export function secondPage(availTimes) {
 }
 //Unhandled Promise Rejection: TypeError: undefined is not a function (near '...secondPage.apply.addEventListener...')
 function submitPost(params) {
-    detailsButton.addEventListener("submit", (e) => {
+    detailsButton.addEventListener("click", (e) => {
         if (document.getElementById("name-input").value.length == 0) {
             alert("input name");
         }
@@ -82,8 +82,8 @@ function submitPost(params) {
             alert("input email");
         }
 
-        let userName = bg_container.getElementById("").value;
-        let userEmail = bg_container.getElementById("body").value;
+        /* let userName = bg_container.getElementById("").value;
+                let userEmail = bg_container.getElementById("body").value; */
 
         fetch(
                 "https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
