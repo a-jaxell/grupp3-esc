@@ -1,6 +1,5 @@
 import { queryJson } from "./bookingAPI.js";
 import { secondPage } from "./secondPage.js";
-import { thirdPage } from "./thirdPage.js";
 
 queryJson();
 
@@ -91,8 +90,8 @@ function popOutNow() {
             okFormatAndTime(availTimes);
 
             /*  availTimes.forEach((element) => {
-                                              timeInput.add(new Option(element));
-                                          }); */
+                                                                      timeInput.add(new Option(element));
+                                                                  }); */
             secondPage(availTimes);
         }
 

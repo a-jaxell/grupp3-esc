@@ -45,8 +45,8 @@ detailsButton.innerText = "Click to proceed";
 
 export function secondPage(availTimes) {
     /* bg_container.removeChild(titleSecondPage);
-                      bg_container.removeChild(paragraphOne);
-                      bg_container.removeChild(dateButton); */
+                                    bg_container.removeChild(paragraphOne);
+                                    bg_container.removeChild(dateButton); */
 
     bg_container.innerHTML = "";
     //
