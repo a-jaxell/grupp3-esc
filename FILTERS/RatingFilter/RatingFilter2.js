@@ -4,7 +4,7 @@ export class RatingFilter2 {
   constructor(list) {
     //passing in a reference to the classList object that calls this constructor
     this.minRating = 0;
-    this.maxRating = 0;
+    this.maxRating = 5;
     this.list = list; //has update function
   }
 
