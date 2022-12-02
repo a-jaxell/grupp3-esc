@@ -21,3 +21,5 @@ export const queryJson = async(date, challengeId) => {
      */
     return data.slots;
 };
+
+//Any invalid requests will respond with an object containing details of the error.
