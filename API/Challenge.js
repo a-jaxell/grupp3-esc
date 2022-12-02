@@ -17,12 +17,56 @@ export class Challenge {
         let rating = document.createElement("ul") // alvars funktion
         rating.className = "rating";    
         //tillfällig
-        for(let i = 0; i < 5; i++){
-          let star = document.createElement("li");
-          star.className = "rating-star active";
-          rating.appendChild(star);
+
+
+        
+        // for(let i = 0; i < 5; i++){
+
+        //   let star = document.createElement("li");
+        //   star.className = "rating-star active";
+        //   rating.appendChild(star);
+        // }
+        //tillfälli
+    setStars();
+
+    function setStars() {
+    let stars = 5;
+
+    let wholeStars;
+    let halfStar;
+    if (Number.isInteger(this.data.rating)) {
+            wholeStars = this.data.rating;
+            createStar(wholeStars, 'whole')
+
+            stars -= wholeStars;
+            createStar(stars);
+    } 
+    else {
+        Math.floor(this.data.rating); 
+
+        wholeStars = this.data.rating; 
+
+        createStar(wholeStars, 'whole')
+        halfStar = 1; 
+        createStar(wholeStars, 'half')
+
+        stars -= wholeStar - HalfStar; 
+        createStar(stars);
+    }
+    
+    function createStar(count, className){
+        for (let i = 0; i < count; i++) {
+            const star = document.createElement('li');
+            star.classList.add('star', className);
+            rating.appendChild(star);
         }
-        //tillfälli 
+    }
+
+   } 
+
+
+       
+        
         let participants = document.createElement("small");
         participants.className = "challenge-meta";
         participants.innerHTML = `${this.data.minParticipants}-${this.data.maxParticipants} participants`;
