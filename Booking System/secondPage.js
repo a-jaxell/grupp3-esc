@@ -47,8 +47,8 @@ detailsButton.innerText = "Click to proceed";
 
 export function secondPage(availTimes) {
     /* bg_container.removeChild(titleSecondPage);
-                                                                                    bg_container.removeChild(paragraphOne);
-                                                                                    bg_container.removeChild(dateButton); */
+                                                                                            bg_container.removeChild(paragraphOne);
+                                                                                            bg_container.removeChild(dateButton); */
 
     bg_container.innerHTML = "";
     //
@@ -83,14 +83,14 @@ function submitPost(params) {
         }
 
         /* let userName = bg_container.getElementById("").value;
-                let userEmail = bg_container.getElementById("body").value; */
+                                let userEmail = bg_container.getElementById("body").value; */
 
         fetch(
                 "https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
                     method: "POST",
                     body: JSON.stringify({
                         challenge: 12,
-                        name: "Customer Name",
+                        name: getName(),
                         email: "name@example.com",
                         date: "2022-12-12",
                         time: "18:30",
@@ -111,6 +111,16 @@ function submitPost(params) {
         e.preventDefault();
     });
 }
+
+function getName() {
+    return document.querySelector("#name-input").value;
+}
+
+/* 
+import thirdpage
+save name and email
+
+*/
 
 //function secondPagePost(params) {
 // User fills in Name
