@@ -68,13 +68,16 @@ export function secondPage(availTimes) {
     // detailsButton.addEventListener("click", thirdPage);
 
     availTimes.forEach((element) => {
-        timeInput.add(new Option(element));
+        let x = new Option(element)
+        x.setAttribute("value", element)
+        timeInput.appendChild(x);
     });
 
     submitPost();
 }
 //Unhandled Promise Rejection: TypeError: undefined is not a function (near '...secondPage.apply.addEventListener...')
 function submitPost(params) {
+    const bookedTime = document.getElementById('time-input');
     detailsButton.addEventListener("click", (e) => {
         if (document.getElementById("name-input").value.length == 0) {
             alert("input name");
@@ -94,7 +97,7 @@ function submitPost(params) {
                         name: getName(),
                         email: getEmail(),
                         date: globalDate,
-                        time: globalTime,
+                        time: bookedTime.value, // <--- globalTime stod där innan
                         //TypeError: undefined is not an object (evaluating 'document.getElementById("time-input").selected.value')
                         participants: 4,
                     }),
@@ -114,7 +117,7 @@ function submitPost(params) {
     });
 }
 
-var e = document.getElementById("ddlViewBy");
+/* var e = document.getElementById("ddlViewBy");
 
 function onChange() {
     var value = e.value;
@@ -122,7 +125,7 @@ function onChange() {
     console.log(value, text);
 }
 e.onchange = onChange;
-onChange();
+onChange(); */
 
 function getName() {
     return document.querySelector("#name-input").value;
