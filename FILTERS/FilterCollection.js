@@ -1,7 +1,8 @@
 import {RatingFilter} from "./RatingFilter.js";
 // import {TypeFilter} from "./TypeFilter.js";
-// import {LabelFilter} from "./LabelFilter.js"; 
-import {StringFilter} from "./StringFilter.js";
+import {LabelFilter} from "./LabelFilter.js"; 
+import {StringFilter} from "./StringFilter";
+
 
 export class FilterCollection {
         constructor(list){
@@ -10,7 +11,7 @@ export class FilterCollection {
                 new RatingFilter(list),
                 new StringFilter(list),
                 // new TypeFilter(list),
-                // new LabelFilter(list),
+                new LabelFilter(list),
             ];
         }
 
