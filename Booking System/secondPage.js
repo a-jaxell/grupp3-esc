@@ -1,5 +1,6 @@
 import { thirdPage } from "./thirdPage.js";
 import { globalDate, globalTime } from "./booking.js";
+import { APIAdapter } from "../API/APIadapter.js";
 
 const bg_container = document.querySelector(".booking-container");
 
@@ -50,7 +51,7 @@ detailsButton.innerText = "Click to proceed";
 
 export function secondPage(availTimes) {
     /* bg_container.removeChild(titleSecondPage); bg_container.removeChild(paragraphOne);bg_container.removeChild(dateButton); */
-
+    
     bg_container.innerHTML = "";
     //
     bg_container.appendChild(titleSecondPage);
@@ -60,28 +61,26 @@ export function secondPage(availTimes) {
     bg_container.appendChild(emailInput);
     bg_container.appendChild(timeHeader);
     bg_container.appendChild(timeInput);
-
+    
     bg_container.appendChild(participantsHeader);
     bg_container.appendChild(participants);
     bg_container.appendChild(detailsButton);
     //
     // detailsButton.addEventListener("click", thirdPage);
 
-    /*  availTimes.forEach((element) => {
-              timeInput.add(new Option(element));
-          }); */
-
     availTimes.forEach((element) => {
         let x = new Option(element)
         x.setAttribute("value", element)
         timeInput.appendChild(x);
     });
-
+    
+    
     submitPost();
 }
 //Unhandled Promise Rejection: TypeError: undefined is not a function (near '...secondPage.apply.addEventListener...')
-function submitPost(params) {
-    const bookedTime = document.getElementById('time-input');
+function submitPost() {
+    
+
     detailsButton.addEventListener("click", (e) => {
         if (document.getElementById("name-input").value.length == 0) {
             alert("input name");
@@ -90,19 +89,17 @@ function submitPost(params) {
             alert("input email");
         }
 
-        /* let userName = bg_container.getElementById("").value;
-                                                                                                                                                        let userEmail = bg_container.getElementById("body").value; */
-
+       
+            
         fetch(
                 "https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
                     method: "POST",
                     body: JSON.stringify({
                         challenge: 12,
-                        name: getName(),
-                        email: getEmail(),
-                        date: globalDate,
-                        time: bookedTime.value, // <--- globalTime stod där innan
-                        //TypeError: undefined is not an object (evaluating 'document.getElementById("time-input").selected.value')
+                        name: getName(), // funkar
+                        email: getEmail(), //funkar
+                        date: globalDate, //funkar
+                        time: getTime(), // <--- globalTime stod där innan
                         participants: 4,
                     }),
                     headers: {
@@ -121,15 +118,7 @@ function submitPost(params) {
     });
 }
 
-/* var e = document.getElementById("ddlViewBy");
 
-function onChange() {
-    var value = e.value;
-    var text = e.options[e.selectedIndex].text;
-    console.log(value, text);
-}
-e.onchange = onChange;
-onChange(); */
 
 function getName() {
     return document.querySelector("#name-input").value;
@@ -138,6 +127,35 @@ function getName() {
 function getEmail() {
     return document.getElementById("email-input").value;
 }
+
+function getTime() {
+    return document.getElementById('time-input').value;
+}
+function getChallengeID() {
+    let api = new APIAdapter();
+}
+
+
+
+
+
+/* function getParticipants() {
+     // challenge ID from booked challenge 
+    let participantsData = new APIAdapter();
+
+    let min = `${participantsData.minParticipants}`, max = `${participantsData.maxParticipants} participants`;
+    let x = Array.apply(null, {length: max + 1 - min}).map(function(_, idx) {
+    console.log(x);
+    return idx + min;
+});
+} */
+
+
+/* function getParticipants() {
+    let apiData = new APIAdapter();
+    Math.abs(apiData.minParticipants, apiData.maxParticipants);
+} */
+
 
 /* 
 import thirdpage
