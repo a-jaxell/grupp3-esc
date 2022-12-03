@@ -1,23 +1,23 @@
 import {RatingFilter} from "./RatingFilter.js";
 // import {TypeFilter} from "./TypeFilter.js";
 // import {LabelFilter} from "./LabelFilter.js"; 
-// import {StringFilter} from "./StringFilter";
+import {StringFilter} from "./StringFilter.js";
 
 export class FilterCollection {
         constructor(list){
             this.list = list;
             this.filters = [
                 new RatingFilter(list),
-                // new StringFilter(list),
+                new StringFilter(list),
                 // new TypeFilter(list),
                 // new LabelFilter(list),
             ];
-        }   
+        }
+
+        // Tar en challenge som parameter och kör varje filter i .filters arrayen
+        // och returnerar resultatet av dess filters egna match funktion på den challenge som ges till funktionen.
+        
         challengeDoesMatch(challenge){
-
-            // Tar en challenge som parameter och kör varje filter i .filters arrayen
-            // och returnerar resultatet av dess filters egna match funktion på den challenge som ges till funktionen.
-
             return this.filters.every(filter => filter.challengeDoesMatch(challenge));
         }
 
