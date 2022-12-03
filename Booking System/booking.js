@@ -80,6 +80,7 @@ function popOutNow() {
 
         const userInput = dateInput.value.trim();
         const inputDate = new Date(userInput);
+        return userInput.value;
 
         if (userInput.match(regex) === null) {
             alert("You have entered the wrong format!");
@@ -92,7 +93,7 @@ function popOutNow() {
             okFormatAndTime(availTimes);
 
             /*  availTimes.forEach((element) => {
-              timeInput.add(new Option(element));}); */
+                          timeInput.add(new Option(element));}); */
             secondPage(availTimes);
         }
 

@@ -9,7 +9,7 @@ completedLink.className = "back-to-start";
 completedLink.innerText = "Back to booking";
 completedLink.href = "https://www.google.com/";
 
-function thirdPage() {
+export function thirdPage() {
     /* bg_container.removeChild(titleSecondPage);
     bg_container.removeChild(nameHeader);
   bg_container.removeChild(nameInput);
