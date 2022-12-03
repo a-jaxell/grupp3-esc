@@ -1,7 +1,7 @@
  export class StringFilter{
     constructor(list){
         this.list = list;
-        this.filterText = [];
+        this.filterText = [''];
     }
 
         // Orden i this.filtertext matchas emot titel
@@ -30,6 +30,7 @@
         input.addEventListener('keyup', (event) => {
             this.filterText = event.target.value.toLowerCase();
             this.filterText = this.filterText.split(' ');
+            console.log(this.filterText);
             this.list.update();
         
         });
