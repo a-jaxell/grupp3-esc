@@ -67,6 +67,10 @@ export function secondPage(availTimes) {
     //
     // detailsButton.addEventListener("click", thirdPage);
 
+    /*  availTimes.forEach((element) => {
+              timeInput.add(new Option(element));
+          }); */
+
     availTimes.forEach((element) => {
         let x = new Option(element)
         x.setAttribute("value", element)
@@ -87,7 +91,7 @@ function submitPost(params) {
         }
 
         /* let userName = bg_container.getElementById("").value;
-                                                                                                                                let userEmail = bg_container.getElementById("body").value; */
+                                                                                                                                                        let userEmail = bg_container.getElementById("body").value; */
 
         fetch(
                 "https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
