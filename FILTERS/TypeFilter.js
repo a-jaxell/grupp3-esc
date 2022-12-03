@@ -10,13 +10,10 @@ export class TypeFilter{
 
     challengeDoesMatch(challenge){
         if(!this.isOnlineChecked && !this.isOnsiteChecked){
-            console.log('here');
             return false;
         }else if(challenge.data.type === 'online' && this.isOnlineChecked){
-            console.log('and here');
             return true;
         }else if(challenge.data.type === 'onsite' && this.isOnsiteChecked){
-            console.log('and here too');
             return true;
         }
     }
