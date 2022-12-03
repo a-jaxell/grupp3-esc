@@ -2,7 +2,8 @@ import { thirdPage } from "./thirdPage.js";
 import { globalDate, globalTime } from "./booking.js";
 import { APIAdapter } from "../API/APIadapter.js";
 
-const bg_container = document.querySelector(".booking-container");
+const bookingContainer = document.querySelector(".booking-container");
+let challengeData;
 
 let titleSecondPage = document.createElement("h1");
 titleSecondPage.className = "title-secondPage";
@@ -49,38 +50,38 @@ let detailsButton = document.createElement("button");
 detailsButton.className = "details-button";
 detailsButton.innerText = "Click to proceed";
 
-export function secondPage(availTimes) {
-    /* bg_container.removeChild(titleSecondPage); bg_container.removeChild(paragraphOne);bg_container.removeChild(dateButton); */
-    
-    bg_container.innerHTML = "";
+export function secondPage(availTimes, data) {
     //
-    bg_container.appendChild(titleSecondPage);
-    bg_container.appendChild(nameHeader);
-    bg_container.appendChild(nameInput);
-    bg_container.appendChild(emailHeader);
-    bg_container.appendChild(emailInput);
-    bg_container.appendChild(timeHeader);
-    bg_container.appendChild(timeInput);
-    
-    bg_container.appendChild(participantsHeader);
-    bg_container.appendChild(participants);
-    bg_container.appendChild(detailsButton);
+    /* bg_container.removeChild(titleSecondPage); bg_container.removeChild(paragraphOne);bg_container.removeChild(dateButton); */
+    //recieves challenge obj.
+    challengeData = data; //assigns the param val to global file scope.
+    bookingContainer.innerHTML = "";
+    //
+    bookingContainer.appendChild(titleSecondPage);
+    bookingContainer.appendChild(nameHeader);
+    bookingContainer.appendChild(nameInput);
+    bookingContainer.appendChild(emailHeader);
+    bookingContainer.appendChild(emailInput);
+    bookingContainer.appendChild(timeHeader);
+    bookingContainer.appendChild(timeInput);
+
+    bookingContainer.appendChild(participantsHeader);
+    bookingContainer.appendChild(participants);
+    bookingContainer.appendChild(detailsButton);
     //
     // detailsButton.addEventListener("click", thirdPage);
 
     availTimes.forEach((element) => {
-        let x = new Option(element)
-        x.setAttribute("value", element)
+        // GÖRA SEPARAT FUNCTION AV DENNA?
+        let x = new Option(element);
+        x.setAttribute("value", element);
         timeInput.appendChild(x);
     });
-    
-    
+
     submitPost();
 }
 //Unhandled Promise Rejection: TypeError: undefined is not a function (near '...secondPage.apply.addEventListener...')
 function submitPost() {
-    
-
     detailsButton.addEventListener("click", (e) => {
         if (document.getElementById("name-input").value.length == 0) {
             alert("input name");
@@ -89,18 +90,16 @@ function submitPost() {
             alert("input email");
         }
 
-       
-            
         fetch(
                 "https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
                     method: "POST",
                     body: JSON.stringify({
-                        challenge: 12,
+                        challenge: data.challenge.id,
                         name: getName(), // funkar
                         email: getEmail(), //funkar
                         date: globalDate, //funkar
                         time: getTime(), // <--- globalTime stod där innan
-                        participants: 4,
+                        participants: getParticipants(), //userInput
                     }),
                     headers: {
                         "Content-Type": "application/json;charset=UTF-8",
@@ -118,8 +117,6 @@ function submitPost() {
     });
 }
 
-
-
 function getName() {
     return document.querySelector("#name-input").value;
 }
@@ -129,39 +126,31 @@ function getEmail() {
 }
 
 function getTime() {
-    return document.getElementById('time-input').value;
-}
-function getChallengeID() {
-    let api = new APIAdapter();
+    return document.getElementById("time-input").value;
 }
 
+function getChallengeID() {}
+// description: "Bring back the skills of the past";
+// id: 2;
+// image: "https://placekitten.com/640/480";
+// labels: (2)[("ssh", "bash")];
+// maxParticipants: 8;
+// minParticipants: 2;
+// rating: 2.5;
+// title: "Challenge online";
+// type: "onsite";
 
+function getParticipants() {
+    return document.getElementById("participants-input".value);
+}
 
-
-
-/* function getParticipants() {
-     // challenge ID from booked challenge 
-    let participantsData = new APIAdapter();
-
-    let min = `${participantsData.minParticipants}`, max = `${participantsData.maxParticipants} participants`;
-    let x = Array.apply(null, {length: max + 1 - min}).map(function(_, idx) {
-    console.log(x);
-    return idx + min;
-});
-} */
-
-
-/* function getParticipants() {
-    let apiData = new APIAdapter();
-    Math.abs(apiData.minParticipants, apiData.maxParticipants);
-} */
-
-
-/* 
-import thirdpage
-save name and email
-
-*/
+function renderParticipants() {
+    for (let i = data.minParticipants; i < data.maxParticipants; i++) {
+        const val = `${i} participants`;
+        val.setAttribute("value" [i]);
+        participants.appendChild(val);
+    }
+}
 
 //function secondPagePost(params) {
 // User fills in Name

@@ -1,4 +1,4 @@
-const bg_container = document.querySelector(".booking-container");
+const bookingContainer = document.querySelector(".booking-container");
 
 let titleThirdPage = document.createElement("h1");
 titleThirdPage.className = "title-ThirdPage";
@@ -20,9 +20,9 @@ bg_container.removeChild(timeInput);
 bg_container.removeChild(participantsHeader);
 bg_container.removeChild(participants);
   bg_container.removeChild(detailsButton); */
-    bg_container.innerHTML = "";
+    bookingContainer.innerHTML = "";
 
     //
-    bg_container.appendChild(titleThirdPage);
-    bg_container.appendChild(completedLink);
+    bookingContainer.appendChild(titleThirdPage);
+    bookingContainer.appendChild(completedLink);
 }

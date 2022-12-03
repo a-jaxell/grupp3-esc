@@ -22,9 +22,14 @@ async function timesAvaliable() {
 }; */
 
 const popOutButton = document.getElementById("bookingButton");
+let challengeData;
 
-const bg_container = document.querySelector(".booking-container");
+const body = document.querySelector("body");
 // Add event listeners
+
+let bookingContainer = document.createElement("div");
+bookingContainer.className = "booking-container";
+
 let titleFirstPage = document.createElement("h1");
 titleFirstPage.className = "title-firstPage";
 titleFirstPage.innerText = "Step one of booking";
@@ -58,17 +63,20 @@ function returnText() {
 
 export let globalDate;
 export let globalTime = document.getElementById("time-input");
-popOutButton.addEventListener("click", popOutNow());
+popOutButton.addEventListener("click", bookingModal());
 
-function popOutNow() {
+export function bookingModal(data) {
+    //recieves challenge obj.
+    challengeData = data; //assigns the param val to global file scope.
     document.getElementById("bookingButton").onclick = function() {
         document.querySelector(".booking-container").style.display = "flex";
 
-        bg_container.appendChild(titleFirstPage);
-        bg_container.appendChild(paragraphOne);
-        bg_container.appendChild(dateInput);
+        bookingContainer.appendChild(titleFirstPage);
+        bookingContainer.appendChild(paragraphOne);
+        bookingContainer.appendChild(dateInput);
         //bg_container.appendChild(timeInput);
-        bg_container.appendChild(dateButton);
+        bookingContainer.appendChild(dateButton);
+        body.append(bookingContainer);
 
         /*  if (dateInput.match( ? pattern ? ) && dateButton.onclick()) {}return; */
         dateButton.addEventListener("click", evalInput);
@@ -94,7 +102,7 @@ function popOutNow() {
             okFormatAndTime(availTimes);
 
             globalDate = userInput;
-            secondPage(availTimes);
+            secondPage(availTimes, challengeData);
         }
 
         //secondPage();
@@ -119,22 +127,3 @@ function popOutNow() {
         return date;
     }
 }
-
-/* Failed to load resource: the server responded with a status of 400()
-
-        {error: "Invalid date. Must be within next year. Use ?date=2021-05-01 format"}
-
-         */
-/* if (dateStr.match(regex) === null) {
-            return false;
-        } */
-
-/*  if (nameInput != 0) {
-    alert("input name")
-}
-if (emailInput) {
-    alert("input email")
-} */
-
-/*  availTimes.forEach((element) => {
-                                timeInput.add(new Option(element));}); */
