@@ -56,6 +56,8 @@ function returnText() {
     alert(input);
 }
 
+export let globalDate;
+export let globalTime = document.getElementById("time-input");
 popOutButton.addEventListener("click", popOutNow());
 
 function popOutNow() {
@@ -80,7 +82,6 @@ function popOutNow() {
 
         const userInput = dateInput.value.trim();
         const inputDate = new Date(userInput);
-        return userInput.value;
 
         if (userInput.match(regex) === null) {
             alert("You have entered the wrong format!");
@@ -92,8 +93,7 @@ function popOutNow() {
             const availTimes = await queryJson(userInput); // !availTimes.length === 0)
             okFormatAndTime(availTimes);
 
-            /*  availTimes.forEach((element) => {
-                          timeInput.add(new Option(element));}); */
+            globalDate = userInput;
             secondPage(availTimes);
         }
 
@@ -135,3 +135,6 @@ function popOutNow() {
 if (emailInput) {
     alert("input email")
 } */
+
+/*  availTimes.forEach((element) => {
+                                timeInput.add(new Option(element));}); */

@@ -1,4 +1,5 @@
 import { thirdPage } from "./thirdPage.js";
+import { globalDate, globalTime } from "./booking.js";
 
 const bg_container = document.querySelector(".booking-container");
 
@@ -48,9 +49,7 @@ detailsButton.className = "details-button";
 detailsButton.innerText = "Click to proceed";
 
 export function secondPage(availTimes) {
-    /* bg_container.removeChild(titleSecondPage);
-                                                                                                      bg_container.removeChild(paragraphOne);
-                                                                                                      bg_container.removeChild(dateButton); */
+    /* bg_container.removeChild(titleSecondPage); bg_container.removeChild(paragraphOne);bg_container.removeChild(dateButton); */
 
     bg_container.innerHTML = "";
     //
@@ -85,7 +84,7 @@ function submitPost(params) {
         }
 
         /* let userName = bg_container.getElementById("").value;
-                                                    let userEmail = bg_container.getElementById("body").value; */
+                                                                                                                                let userEmail = bg_container.getElementById("body").value; */
 
         fetch(
                 "https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
@@ -94,8 +93,9 @@ function submitPost(params) {
                         challenge: 12,
                         name: getName(),
                         email: getEmail(),
-                        date: "2022-12-12",
-                        time: "18:30",
+                        date: globalDate,
+                        time: globalTime,
+                        //TypeError: undefined is not an object (evaluating 'document.getElementById("time-input").selected.value')
                         participants: 4,
                     }),
                     headers: {
@@ -104,7 +104,7 @@ function submitPost(params) {
                 }
             )
             .then((response) => {
-                return response.json();
+                return console.log(response.json());
             })
             .then((data) => {
                 thirdPage();
@@ -114,12 +114,22 @@ function submitPost(params) {
     });
 }
 
+var e = document.getElementById("ddlViewBy");
+
+function onChange() {
+    var value = e.value;
+    var text = e.options[e.selectedIndex].text;
+    console.log(value, text);
+}
+e.onchange = onChange;
+onChange();
+
 function getName() {
     return document.querySelector("#name-input").value;
 }
 
 function getEmail() {
-    return document.querySelector("email.input").value;
+    return document.getElementById("email-input").value;
 }
 
 /* 
