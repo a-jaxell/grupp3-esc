@@ -19,7 +19,6 @@ export class StarBar {
         label.setAttribute('value', [i]);
 
         starBar.append(label);
-        arr.append([label]);
       }
       return starBar;
     }

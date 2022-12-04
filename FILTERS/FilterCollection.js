@@ -2,7 +2,7 @@ import {RatingFilter} from "./RatingFilter.js";
 import {TypeFilter} from "./TypeFilter.js";
 import {LabelFilter} from "./LabelFilter.js"; 
 import {StringFilter} from "./StringFilter.js";
-import { NewRatingFilter } from "./newRatingFilter/RatingFilter.js";
+import { NewRatingFilter } from "./NewRatingFilter/RatingFilter.js";
 
 
 export class FilterCollection {
@@ -13,7 +13,7 @@ export class FilterCollection {
                 new StringFilter(list),
                 new TypeFilter(list),
                 new LabelFilter(list),
-                // new NewRatingFilter(list),
+                new NewRatingFilter(list),
             ];
         }
 

@@ -1,11 +1,11 @@
-import { StarBar } from "./StarBar";
+import { StarBar } from "./StarBar.js";
 
 export class NewRatingFilter {
   constructor(listObj) {
     this.list = listObj;
-    this.minRating = 0; // init val
-    this.maxRating = 0; // init val
     this.starCount = 5;
+    this.minRating = 0; // init val
+    this.maxRating = this.starCount; // init val
     this.minArr;
     this.maxArr;
   }
@@ -23,8 +23,8 @@ export class NewRatingFilter {
 
   render() {
     const starBar = new StarBar(this);
-    const minStarBar = starBar.render(starCount, 'min', this.minArr);
-    const maxStarBar = starBar.render(starCount, 'max', this.maxArr);
+    const minStarBar = starBar.render(this.starCount, 'min', this.minArr);
+    const maxStarBar = starBar.render(this.starCount, 'max', this.maxArr);
 
     const ctr = document.createElement('div');
     ctr.className = 'ratingFilter';
@@ -32,8 +32,8 @@ export class NewRatingFilter {
     ctr.appendChild(minStarBar);
     ctr.appendChild(maxStarBar);
 
-    const max = document.querySelector();
-    const min = document.querySelector();
+    // const max = document.querySelector();
+    // const min = document.querySelector();
 
     return ctr;
   }
