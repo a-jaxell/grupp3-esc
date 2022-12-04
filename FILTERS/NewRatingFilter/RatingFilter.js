@@ -6,8 +6,8 @@ export class NewRatingFilter {
     this.starCount = 5;
     this.minRating = 0; // init val
     this.maxRating = this.starCount; // init val
-    this.minArr;
-    this.maxArr;
+    this.minArr = [];
+    this.maxArr = [];
   }
 
   challengeDoesMatch(challenge) {
@@ -34,6 +34,11 @@ export class NewRatingFilter {
 
     // const max = document.querySelector();
     // const min = document.querySelector();
+
+    ctr.addEventListener("change", () => {
+        
+    })
+
 
     return ctr;
   }

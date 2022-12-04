@@ -9,10 +9,10 @@ export class FilterCollection {
         constructor(list){
             this.list = list;
             this.filters = [
-                new RatingFilter(list),
-                new StringFilter(list),
-                new TypeFilter(list),
-                new LabelFilter(list),
+                // new RatingFilter(list),
+                // new StringFilter(list),
+                // new TypeFilter(list),
+                // new LabelFilter(list),
                 new NewRatingFilter(list),
             ];
         }

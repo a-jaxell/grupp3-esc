@@ -1,28 +1,29 @@
-// .star {
-//     font-size: x-large;
-//     width: 50px;
-//     display: inline-block;
-//     color: gray;
-// }
-// .star:last-child {
-//     margin-right: 0;
-// }
-// .star:before {
-//     content: '\2605';
-// }
-// .star.whole {
-//     color: gold;
-// }
-// .star.half:after {
-//         content: '\2605';
-//         color: gold;
-//         margin-left: -20px;
-//         width: 10px;
-//         position: absolute;
-//         overflow: hidden;
-// }
+.starBar {
+    display: flex;
+    align-items: center;
+    width: 160px;
+    flex-direction: row-reverse;
+}
 
-// .rating
-// {
+.starBar input {
+    display: none;
+}
 
-// }
+.starBar > label {
+    width: 30px;
+    height: 30px;
+    font-family: Verdana;
+    font-size: 30px;
+    color: orange;
+}
+
+.starBar label::before {
+    content: '\2606';
+    // position: absolute;
+    top: 0px;
+    line-height: 26px;
+}
+
+.starBar input:checked ~ label:before {
+    content:'\2605';
+}
