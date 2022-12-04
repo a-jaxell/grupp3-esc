@@ -1,8 +1,8 @@
 export class TypeFilter{
     constructor(list){
         this.list = list;
-        this.isOnlineChecked = null;
-        this.isOnsiteChecked = null;
+        this.isOnlineChecked = true;
+        this.isOnsiteChecked = true;
     }
 
     // checkar ifall värdena för boxarna är sanna eller falska
@@ -10,13 +10,10 @@ export class TypeFilter{
 
     challengeDoesMatch(challenge){
         if(!this.isOnlineChecked && !this.isOnsiteChecked){
-            console.log('here');
             return false;
         }else if(challenge.data.type === 'online' && this.isOnlineChecked){
-            console.log('and here');
             return true;
         }else if(challenge.data.type === 'onsite' && this.isOnsiteChecked){
-            console.log('and here too');
             return true;
         }
     }
@@ -31,6 +28,7 @@ export class TypeFilter{
         const inputOnline = document.createElement('input');
         inputOnline.id = 'checkBoxOnline';
         inputOnline.type = 'checkbox';
+        inputOnline.checked = true;
 
         const labelOnline = document.createElement('label');
         labelOnline.for = 'checkBoxOnline';
@@ -39,6 +37,7 @@ export class TypeFilter{
         const inputOnsite = document.createElement('input');
         inputOnsite.id ='checkBoxOnsite'
         inputOnsite.type = 'checkbox';
+        inputOnsite.checked = true;
 
         const labelOnsite = document.createElement('label');
         labelOnsite.for = 'checkBoxOsite';
