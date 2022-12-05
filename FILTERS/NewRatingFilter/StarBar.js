@@ -21,9 +21,22 @@ export class StarBar {
         tempArr.push([input, label]);
       }
       tempArr.reverse();
+
       tempArr.forEach(elePair => {
         starBar.append(elePair[0], elePair[1]);
       })
       return starBar;
     }
   }
+
+
+
+  // for (let i = 0; i < tempArr.length; i++) {
+    //   tempArr[i][1].addEventListener('click', (event) => {
+    //     if (tempArr[i][0].checked) {
+    //       console.log(tempArr[i][0])
+    //       tempArr[i][0].checked
+    //       tempArr[i+1][0].checked;
+    //     }
+    //   })
+    // }

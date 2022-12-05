@@ -6,8 +6,7 @@ export class NewRatingFilter {
     this.starCount = 5;
     this.minRating = 0; // init val
     this.maxRating = this.starCount; // init val
-    this.minArr = [];
-    this.maxArr = [];
+    this.minValBeforeClick;
   }
 
   challengeDoesMatch(challenge) {
@@ -23,24 +22,46 @@ export class NewRatingFilter {
 
   render() {
     const starBar = new StarBar(this);
-    const minStarBar = starBar.render(this.starCount, 'min', this.minArr);
-    const maxStarBar = starBar.render(this.starCount, 'max', this.maxArr);
-
-    const ctr = document.createElement('div');
-    ctr.className = 'ratingFilter';
+    const minStarBar = starBar.render(this.starCount, "min", this.minArr);
+    const maxStarBar = starBar.render(this.starCount, "max", this.maxArr);
     
+    
+    
+    const ctr = document.createElement("div");
+    ctr.className = "ratingFilter";
     ctr.appendChild(minStarBar);
     ctr.appendChild(maxStarBar);
+    let min = document.querySelectorAll(".starBar input[name='min']"); 
 
-    // const max = document.querySelector();
-    // const min = document.querySelector();
-
-    ctr.addEventListener("change", () => {
-        
-    })
-
-
+    ctr.addEventListener("click", () => {
+      min = document.querySelectorAll(".starBar input[name='min']");
+      
+      min.forEach(input => {
+        if (input.checked) {
+          const inputVal = input.value;
+          console.log(`new value: ${input.value}`);
+          console.log(`old value: ${this.minValBeforeClick}`);
+          if(inputVal === this.minValBeforeClick){
+            console.log("You clicked on same button");
+          } else {
+            console.log("You clicked on a new button");
+          }
+          this.minValBeforeClick = inputVal;
+        }
+      })
+    });
+    
     return ctr;
   }
-
 }
+
+
+
+
+
+// console.log(this.currMin); 
+// console.log(input);
+// const inputVal = input.value;
+// console.log(inputVal);
+// this.list.update(); 
+// this.currMin = inputVal
