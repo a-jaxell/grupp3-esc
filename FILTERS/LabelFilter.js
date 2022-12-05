@@ -48,6 +48,9 @@ export class LabelFilter{
 
                     this.matchArray = this.matchArray.filter(ele => ele !== ev.target.value);
                 }
+                if(ev.target.type === 'button'){
+                    ev.target.classList.toggle('label-clicked');
+                }
                 this.list.update();
             });
 
