@@ -6,7 +6,7 @@ export class NewRatingFilter {
     this.starCount = 5;
     this.minRating = 0; // init val
     this.maxRating = this.starCount; // init val
-    this.minValBeforeClick;
+    this.minValBeforeClick = 0;
   }
 
   challengeDoesMatch(challenge) {
@@ -31,24 +31,24 @@ export class NewRatingFilter {
     ctr.className = "ratingFilter";
     ctr.appendChild(minStarBar);
     ctr.appendChild(maxStarBar);
-    let min = document.querySelectorAll(".starBar input[name='min']"); 
+    let minInputs = document.querySelectorAll(".starBar input[name='min']"); 
 
     ctr.addEventListener("click", () => {
-      min = document.querySelectorAll(".starBar input[name='min']");
-      
-      min.forEach(input => {
-        if (input.checked) {
-          const inputVal = input.value;
-          console.log(`new value: ${input.value}`);
-          console.log(`old value: ${this.minValBeforeClick}`);
-          if(inputVal === this.minValBeforeClick){
-            console.log("You clicked on same button");
+      minInputs = document.querySelectorAll(".starBar input[name='min']");
+      for (let i = 0; i < minInputs.length; i ++) {
+        if (minInputs[i].checked) {
+          const valAfterClick = Number(minInputs[i].value);
+          console.log(`valAfterClick: ${valAfterClick}`);
+          console.log(`valBeforeClick: ${this.minValBeforeClick}`);
+          if (valAfterClick === this.minValBeforeClick) {
+            console.log("You clicked on the same button");
           } else {
             console.log("You clicked on a new button");
           }
-          this.minValBeforeClick = inputVal;
+          
+          this.minValBeforeClick = valAfterClick;
         }
-      })
+      }
     });
     
     return ctr;
@@ -58,10 +58,16 @@ export class NewRatingFilter {
 
 
 
-
-// console.log(this.currMin); 
-// console.log(input);
-// const inputVal = input.value;
-// console.log(inputVal);
-// this.list.update(); 
-// this.currMin = inputVal
+// min.forEach(input => {
+//   if (input.checked) {
+//     const inputVal = input.value;
+//     console.log(`new value: ${input.value}`);
+//     console.log(`old value: ${this.minValBeforeClick}`);
+//     if(inputVal === this.minValBeforeClick){
+//       console.log("You clicked on same button");
+//     } else {
+//       console.log("You clicked on a new button");
+//     }
+//     this.minValBeforeClick = inputVal;
+//   }
+// })
