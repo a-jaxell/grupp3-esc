@@ -69,7 +69,7 @@ export function bookingModal(data) {
     //recieves challenge obj.
     challengeData = data; //assigns the param val to global file scope.
     document.getElementById("bookingButton").onclick = function() {
-        document.querySelector(".booking-container").style.display = "flex";
+        bookingContainer.style.display = "flex";
 
         bookingContainer.appendChild(titleFirstPage);
         bookingContainer.appendChild(paragraphOne);
@@ -105,7 +105,7 @@ export function bookingModal(data) {
             secondPage(availTimes, challengeData);
         }
 
-        //secondPage();
+        secondPage();
     }
 
     function okFormatAndTime(availTimes) {
