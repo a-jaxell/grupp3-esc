@@ -1,4 +1,4 @@
-import { bookingModal } from "../Booking System/booking";
+import { bookingModal } from "../Booking System/booking.js";
 import { Stars } from "./Stars.js";
 
 export class Challenge {

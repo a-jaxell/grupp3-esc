@@ -2,7 +2,7 @@ import { thirdPage } from "./thirdPage.js";
 import { globalDate, globalTime } from "./booking.js";
 import { APIAdapter } from "../API/APIadapter.js";
 
-const bookingContainer = document.querySelector(".booking-container");
+let bookingContainer = document.querySelector(".booking-container");
 let challengeData;
 
 let titleSecondPage = document.createElement("h1");
@@ -55,7 +55,7 @@ export function secondPage(availTimes, data) {
     /* bg_container.removeChild(titleSecondPage); bg_container.removeChild(paragraphOne);bg_container.removeChild(dateButton); */
     //recieves challenge obj.
     challengeData = data; //assigns the param val to global file scope.
-    bookingContainer.innerHTML = "";
+    bookingContainer.innerHTML = '';
     //
     bookingContainer.appendChild(titleSecondPage);
     bookingContainer.appendChild(nameHeader);

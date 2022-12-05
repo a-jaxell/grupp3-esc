@@ -63,13 +63,15 @@ function returnText() {
 
 export let globalDate;
 export let globalTime = document.getElementById("time-input");
-popOutButton.addEventListener("click", bookingModal());
+// popOutButton.addEventListener("click", bookingModal());
 
 export function bookingModal(data) {
     //recieves challenge obj.
     challengeData = data; //assigns the param val to global file scope.
-    document.getElementById("bookingButton").onclick = function() {
-        document.querySelector(".booking-container").style.display = "flex";
+    // document.querySelector(".button .primary").onclick = function() {
+        // ! deklarera bookingcontainer här?
+        let bookingContainer = document.createElement("div");
+        bookingContainer.style.display = "flex";
 
         bookingContainer.appendChild(titleFirstPage);
         bookingContainer.appendChild(paragraphOne);
@@ -80,7 +82,7 @@ export function bookingModal(data) {
 
         /*  if (dateInput.match( ? pattern ? ) && dateButton.onclick()) {}return; */
         dateButton.addEventListener("click", evalInput);
-    };
+    // };
 
     async function evalInput() {
         const regex = /^\d{4}-\d{2}-\d{2}$/; //right format (yyyy-mm-dd)
@@ -105,7 +107,7 @@ export function bookingModal(data) {
             secondPage(availTimes, challengeData);
         }
 
-        //secondPage();
+        // secondPage();
     }
 
     function okFormatAndTime(availTimes) {
