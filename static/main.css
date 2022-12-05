@@ -501,7 +501,33 @@ footer a:hover {
 }
 
 .filter-menu.open {
-  display: block;
+  display: flex;
+  align-content: space-between;
   background-color: pink;
   width: 80%;
+}
+
+.filter-menu .checkBoxSection {
+  height: 200px;
+  font-size: 0.75em;
+  width: 25%;
+}
+
+.filter-menu .labelSection {
+  align-self: center;
+}
+.filter-menu .labelSection input {
+  border: 1.5em;
+  background-color: white;
+  border-radius: 1em;
+}
+.filter-menu .labelSection input.label-clicked {
+  background-color: darkgray;
+}
+.filter-menu .labelSection input:hover {
+  background-color: darkgray;
+  transition: 0.2ms;
+}
+.filter-menu .labelSection.label-clicked {
+  background-color: darkgray;
 }
