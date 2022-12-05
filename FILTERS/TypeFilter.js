@@ -1,32 +1,61 @@
-// export class TypeFilter{
-//     constructor(list){
-//         this.list = list;
-//     }
+export class TypeFilter{
+    constructor(list){
+        this.list = list;
+        this.isOnlineChecked = true;
+        this.isOnsiteChecked = true;
+    }
 
-//     challengeMatch(challenge){
-//         if(challenge.data.type){
-//             return true;
-//         }
-//     }
+    // checkar ifall värdena för boxarna är sanna eller falska
+    // och returnerar värde därefter
+
+    challengeDoesMatch(challenge){
+        if(!this.isOnlineChecked && !this.isOnsiteChecked){
+            return false;
+        }else if(challenge.data.type === 'online' && this.isOnlineChecked){
+            return true;
+        }else if(challenge.data.type === 'onsite' && this.isOnsiteChecked){
+            return true;
+        }
+    }
     
-//     render(){
-//         const inputOnline = document.createElement('input');
-//         const inputOnsite = document.createElement('input');
+    // Skapar en container med 2 checkboxar i DOM och ger dem labels
+    // Båda får en eventlistener som updaterar respektive värde i objektet.
 
-//         inputOnline.type = 'checkbox';
-//         inputOnsite.type = 'checkbox';
+    render(){
+        const checkBoxDiv = document.createElement('div');
+        checkBoxDiv.className = 'checkBoxSection';
 
-//         inputOnline.isChecked = true;
-//         inputOnsite.isChecked = true;
+        const inputOnline = document.createElement('input');
+        inputOnline.id = 'checkBoxOnline';
+        inputOnline.type = 'checkbox';
+        inputOnline.checked = true;
 
+        const labelOnline = document.createElement('label');
+        labelOnline.for = 'checkBoxOnline';
+        labelOnline.innerText = 'Include online challenges';
+        
+        const inputOnsite = document.createElement('input');
+        inputOnsite.id ='checkBoxOnsite'
+        inputOnsite.type = 'checkbox';
+        inputOnsite.checked = true;
 
-//         // .isChecked returnerar true/false om boxen är tickad
+        const labelOnsite = document.createElement('label');
+        labelOnsite.for = 'checkBoxOsite';
+        labelOnsite.innerText = 'Include onsite challenges';
+        
+        checkBoxDiv.append(inputOnline);
+        checkBoxDiv.append(labelOnline);
+        checkBoxDiv.append(inputOnsite);
+        checkBoxDiv.append(labelOnsite);
 
-//         inputOnline.addEventListener('change', (event) => {
-//             return event.target.isChecked;
-//                 });
-//         inputOnsite.addEventListener('change', (event) => {
-//             return event.target.isChecked;
-//         })
-//     }
-// }
+        inputOnline.addEventListener('change', (event) => {
+            this.isOnlineChecked = event.target.checked;
+            this.list.update();
+        });
+        inputOnsite.addEventListener('change', (event) => {
+            this.isOnsiteChecked = event.target.checked;
+            this.list.update();
+        });
+        return checkBoxDiv;
+    }
+}

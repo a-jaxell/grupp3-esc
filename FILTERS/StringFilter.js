@@ -1,36 +1,39 @@
-//  export class StringFilter{
-//     constructor(list){
-//         this.list = list;
-//         this.filterText = '';
-//     }
+ export class StringFilter{
+    constructor(list){
+        this.list = list;
+        this.filterText = [''];
+    }
 
-//     challengeMatch(challenge){
+        // Orden i this.filtertext matchas emot titel
+        // och description som även de konverterats till
+        // lowercase.
 
-//         // I nuläget matchas hela textsträngen sparad i this.filterText
-//         // En uppgradering kan vara att ändra koden till att dela upp hela textsträngen i
-//         // ord och spara dem i en array och sen matcha varje element i arrayen mot
-//         // titel description
-//         // case sensitive
-//         // .toUpperCase // .toLowerCase
+    challengeDoesMatch(challenge){
 
-//         // använda sig av .slice
+        if(this.filterText.some(element => challenge.data.title.toLowerCase().includes(element)) 
+        || this.filterText.some(element => challenge.data.description.toLowerCase().includes(element)))
+        {
+            return true;
+        } else {
+            return false;    
+        }
+    }
 
-//         if(challenge.data.title.includes(this.filterText) || challenge.data.description.includes(this.filterText)){
-//             return true;
-//         } else {
-//             return false;    
-//         }
-//     }
+        // Ett inputfält skapas och textsträngen konverteras till
+        // små bokstäver och sparas i this.filterText som sedan
+        // delas upp i enstaka ord med hjälp av .split.
 
-//     render() {
-//         // Här ska ett inputfält renderas och skapa ett inputfält som vars värde 
-//         // lagras i .filterText
+    render() {
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.addEventListener('keyup', (event) => {
+            this.filterText = event.target.value.toLowerCase();
+            this.filterText = this.filterText.split(' ');
+            console.log(this.filterText);
+            this.list.update();
         
-//         const input = document.createElement('input');
-//         input.type = 'text';
-//         input.addEventListener('keyup', (event) => {
-//             this.filterText = event.target.value;
-//             this.list.update();
-//         });
-//     }
-// }
+        });
+        return input;
+    }
+}

@@ -1,4 +1,5 @@
 import { bookingModal } from "../Booking System/booking";
+import { Stars } from "./Stars.js";
 
 export class Challenge {
     constructor(data) {
@@ -16,15 +17,6 @@ export class Challenge {
         title.className = "challenge-title";
         title.innerHTML = `${this.data.title} (${this.data.type})`;
 
-        let rating = document.createElement("ul"); // alvars funktion
-        rating.className = "rating";
-        //tillfällig
-        for (let i = 0; i < 5; i++) {
-            let star = document.createElement("li");
-            star.className = "rating-star active";
-            rating.appendChild(star);
-        }
-        //tillfälli
         let participants = document.createElement("small");
         participants.className = "challenge-meta";
         participants.innerHTML = `${this.data.minParticipants}-${this.data.maxParticipants} participants`;
@@ -42,10 +34,14 @@ export class Challenge {
             bookingModal(this.data);
         });
 
+        const stars = new Stars();
+        const starContainer = stars.render(this.data.rating);
+        starContainer.className = "rating";
+
         item.setAttribute("class", "challenge-item");
         item.appendChild(img);
         item.appendChild(title);
-        item.appendChild(rating);
+        item.appendChild(starContainer);
         item.appendChild(participants);
         item.appendChild(description);
         item.appendChild(btnBookRoom);

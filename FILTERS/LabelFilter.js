@@ -1,48 +1,56 @@
-// export class LabelFilter{
-//     constructor(list){
-//         this.list = list;
-//         this.tempData = [];
-//     }
+export class LabelFilter{
+    constructor(list){
+        this.list = list;
+        this.labelButtons = [];
+        this.matchArray = [];
+    }
 
-//     // TODO: kolla hur man kan skriva om det med Array.filter();
-//     // Ska skriva ut alla unikaLabels som finns i datan
+    // Matchar varje label i varje challenge emot en array som innehåller "nedtryckta" knappar
 
-//     challengeMatch(){
+    challengeDoesMatch(challenge){
+        if(this.matchArray.every(ele => challenge.data.labels.includes(ele))){
+            return true;
+        } else {
+            return false;
+        }
 
-//         // Välja alla tagg-knappar
-//         // Kolla ifall de är nedtryckta
-//         // Visa de rum som matchar nedtryckta knappar
-//     }
-
-
-//     getLabels(allChallenges){         
-
-//             for(i = 0; allChallenges.length; i++){
-                     
-//                     allChallenges[i].labels.forEach( element => {
-//                         if(!tempData.includes(element)){
-//                             tempData.push(element)
-//                         }
-//                     })
-//             }
-//     }
-
-//     render(){
+    }
+    
+     // itererar genom den temporära Arrayen och skapar en 
+     // knapp med texten i array[i]
+     // Skapar en array som innehåller labels som ska matchas emot challenges
+     // TODO : lägga till en toggle av styling vid klick på knappar. 
+    
+    render(){
         
-//         const labelSection = document.createElement('div');
-//         labelSection.className = 'labelSection';
-        
-//         const labelButton = document.createElement('span');
-        
-//         this.tempData.forEach(element => {
-//             labelSection.append(labelButton)
-//             labelButton.innerHtml = element;
-//         })
-           
-//         // Här ska tagg-knappar renderas och få eventlisteners.
-//         // Det ska finnas en uppsättning knappar som är unika. 
-//         // är de nedtryckta ska de visas som grå.
-//         // Vi kanske skulle kunna använda oss av radioknappar för detta. 
+             const labelSection = document.createElement('div');
+             labelSection.className = 'labelSection';
+            
+             for(let i = 0; i < this.list.challenges.length; i++){
+                this.list.challenges[i].data.labels.forEach(element => {
+                    if(!this.labelButtons.includes(element)){
+                        this.labelButtons.push(element)
+                    }
+                });
+            }
+            for(let i = 0; i < this.labelButtons.length; i++){
+                const labelButton = document.createElement('input');
+                labelButton.type = 'button';
+                labelSection.append(labelButton);
+                labelButton.value = this.labelButtons[i];
+                
+            }
+            labelSection.addEventListener('click', (ev) => {
+                if(!this.matchArray.includes(ev.target.value)){
 
-//     }
-// }
+                    this.matchArray.push(ev.target.value);
+                }else{
+
+                    this.matchArray = this.matchArray.filter(ele => ele !== ev.target.value);
+                }
+                this.list.update();
+            });
+
+            return labelSection;
+        }
+    }     
