@@ -8,10 +8,10 @@ export class FilterCollection {
         constructor(list){
             this.list = list;
             this.filters = [
-                new RatingFilter(list),
-                new StringFilter(list),
                 new TypeFilter(list),
+                new RatingFilter(list),
                 new LabelFilter(list),
+                new StringFilter(list),
             ];
         }
 
@@ -27,7 +27,7 @@ export class FilterCollection {
             container.className = 'filters';
 
             const button = document.createElement('button');
-            button.className = 'filters-toggle';
+            button.className = 'filters-toggle button secondary';
             button.innerText = 'Filter Challenges';
 
             const filterMenu = document.createElement('div');
