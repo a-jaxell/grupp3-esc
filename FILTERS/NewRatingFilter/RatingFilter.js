@@ -42,10 +42,13 @@ export class NewRatingFilter {
           console.log(`valBeforeClick: ${this.minValBeforeClick}`);
           if (valAfterClick === this.minValBeforeClick) {
             console.log("You clicked on the same button");
+            const uncheck =  document.querySelector(".starBar input[name='min']").value +1; //arbeta vidare på idé // gör om till number för att kunna plussa på
+            console.log(uncheck);
           } else {
             console.log("You clicked on a new button");
           }
-          
+
+          this.list.update();
           this.minValBeforeClick = valAfterClick;
         }
       }
