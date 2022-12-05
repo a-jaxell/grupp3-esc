@@ -27,7 +27,7 @@ let challengeData;
 const body = document.querySelector("body");
 // Add event listeners
 
-let bookingContainer = document.createElement("div");
+export const bookingContainer = document.createElement("div");
 bookingContainer.className = "booking-container";
 
 let titleFirstPage = document.createElement("h1");
@@ -63,67 +63,68 @@ function returnText() {
 
 export let globalDate;
 export let globalTime = document.getElementById("time-input");
-popOutButton.addEventListener("click", bookingModal());
+//popOutButton.addEventListener("click", bookingModal());
 
 export function bookingModal(data) {
     //recieves challenge obj.
     challengeData = data; //assigns the param val to global file scope.
-    document.getElementById("bookingButton").onclick = function() {
-        bookingContainer.style.display = "flex";
+    //  document.getElementById("bookingButton").onclick =
 
-        bookingContainer.appendChild(titleFirstPage);
-        bookingContainer.appendChild(paragraphOne);
-        bookingContainer.appendChild(dateInput);
-        //bg_container.appendChild(timeInput);
-        bookingContainer.appendChild(dateButton);
-        body.append(bookingContainer);
+    bookingContainer.style.display = "flex";
 
-        /*  if (dateInput.match( ? pattern ? ) && dateButton.onclick()) {}return; */
-        dateButton.addEventListener("click", evalInput);
-    };
+    bookingContainer.appendChild(titleFirstPage);
+    bookingContainer.appendChild(paragraphOne);
+    bookingContainer.appendChild(dateInput);
+    //bg_container.appendChild(timeInput);
+    bookingContainer.appendChild(dateButton);
+    body.append(bookingContainer);
 
-    async function evalInput() {
-        const regex = /^\d{4}-\d{2}-\d{2}$/; //right format (yyyy-mm-dd)
-        const date = new Date();
-        const validDate = addOneYear(date);
-        //console.log("ValidDate: ", validDate);
+    /*  if (dateInput.match( ? pattern ? ) && dateButton.onclick()) {}return; */
+    dateButton.addEventListener("click", evalInput);
+}
 
-        const userInput = dateInput.value.trim();
-        const inputDate = new Date(userInput);
+async function evalInput() {
+    const regex = /^\d{4}-\d{2}-\d{2}$/; //right format (yyyy-mm-dd)
+    const date = new Date();
+    const validDate = addOneYear(date);
+    //console.log("ValidDate: ", validDate);
 
-        if (userInput.match(regex) === null) {
-            alert("You have entered the wrong format!");
-            console.log("You entered wrong format");
-        } else if (inputDate > validDate) {
-            alert("You must choose a date within the next year!");
-            console.log("Choose a date within the next year");
-        } else {
-            const availTimes = await queryJson(userInput); // !availTimes.length === 0)
-            okFormatAndTime(availTimes);
+    const userInput = dateInput.value.trim();
+    const inputDate = new Date(userInput);
 
-            globalDate = userInput;
-            secondPage(availTimes, challengeData);
-        }
+    if (userInput.match(regex) === null) {
+        alert("You have entered the wrong format!");
+        console.log("You entered wrong format");
+    } else if (inputDate > validDate) {
+        alert("You must choose a date within the next year!");
+        console.log("Choose a date within the next year");
+    } else {
+        const availTimes = await queryJson(userInput); // !availTimes.length === 0)
+        okFormatAndTime(availTimes);
 
-        secondPage();
+        globalDate = userInput;
+        bookingContainer.innerHTML = "";
+        secondPage(availTimes, challengeData);
     }
 
-    function okFormatAndTime(availTimes) {
-        if (availTimes.length === 0) {
-            //TypeError: undefined is not a function (near '...availTimes...')
-            //TypeError: undefined is not an object (evaluating 'availTimes.length')
-            console.log("No times found on that date");
-        } else {
-            console.log("These are the available dates: ", availTimes);
-            //secondPage();
+    // secondPage();
+}
 
-            // thirdPage();
-        }
+function okFormatAndTime(availTimes) {
+    if (availTimes.length === 0) {
+        //TypeError: undefined is not a function (near '...availTimes...')
+        //TypeError: undefined is not an object (evaluating 'availTimes.length')
+        console.log("No times found on that date");
+    } else {
+        console.log("These are the available dates: ", availTimes);
+        //secondPage();
+
+        // thirdPage();
     }
+}
 
-    function addOneYear(date) {
-        date.setFullYear(date.getFullYear() + 1); // 2022-12-12"
+function addOneYear(date) {
+    date.setFullYear(date.getFullYear() + 1); // 2022-12-12"
 
-        return date;
-    }
+    return date;
 }

@@ -24,6 +24,7 @@ input {
     font-size: small;
     display: none;
     border: 1px solid black;
+    z-index: 2;
 }
 
 #bookingButton {

@@ -1,9 +1,14 @@
 import { thirdPage } from "./thirdPage.js";
-import { globalDate, globalTime } from "./booking.js";
+import { globalDate, globalTime, bookingContainer } from "./booking.js";
 import { APIAdapter } from "../API/APIadapter.js";
 
-const bookingContainer = document.querySelector(".booking-container");
-let challengeData;
+/* const bookingContainer = document.querySelector(".booking-container"); */
+
+let data;
+let availableTimes;
+
+// let bookingContainer = document.createElement("div");
+// bookingContainer.className = "booking-container";
 
 let titleSecondPage = document.createElement("h1");
 titleSecondPage.className = "title-secondPage";
@@ -50,13 +55,15 @@ let detailsButton = document.createElement("button");
 detailsButton.className = "details-button";
 detailsButton.innerText = "Click to proceed";
 
-export function secondPage(availTimes, data) {
+export function secondPage(availTimes, challengeData) {
     //
     /* bg_container.removeChild(titleSecondPage); bg_container.removeChild(paragraphOne);bg_container.removeChild(dateButton); */
     //recieves challenge obj.
-    challengeData = data; //assigns the param val to global file scope.
+    availableTimes = availTimes;
+    data = challengeData; //assigns the param val to global file scope.
     bookingContainer.innerHTML = "";
-    //
+
+    //Unhandled Promise Rejection: TypeError: null is not an object (evaluating 'bookingContainer.innerHTML = ""')
     bookingContainer.appendChild(titleSecondPage);
     bookingContainer.appendChild(nameHeader);
     bookingContainer.appendChild(nameInput);
@@ -68,10 +75,11 @@ export function secondPage(availTimes, data) {
     bookingContainer.appendChild(participantsHeader);
     bookingContainer.appendChild(participants);
     bookingContainer.appendChild(detailsButton);
+    renderParticipants();
     //
     // detailsButton.addEventListener("click", thirdPage);
 
-    availTimes.forEach((element) => {
+    availableTimes.forEach((element) => {
         // GÖRA SEPARAT FUNCTION AV DENNA?
         let x = new Option(element);
         x.setAttribute("value", element);
@@ -94,7 +102,7 @@ function submitPost() {
                 "https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
                     method: "POST",
                     body: JSON.stringify({
-                        challenge: data.challenge.id,
+                        challenge: data.id,
                         name: getName(), // funkar
                         email: getEmail(), //funkar
                         date: globalDate, //funkar
@@ -145,12 +153,14 @@ function getParticipants() {
 }
 
 function renderParticipants() {
-    for (let i = data.minParticipants; i < data.maxParticipants; i++) {
-        const val = `${i} participants`;
-        val.setAttribute("value" [i]);
-        participants.appendChild(val);
+    for (let i = data.minParticipants; i <= data.maxParticipants; i++) {
+        let option = new Option(`${i} participant(s)`);
+        option.setAttribute("value", i);
+        participants.appendChild(option);
     }
 }
+
+//Unhandled Promise Rejection: TypeError: val.setAttribute is not a function. (In 'val.setAttribute("value" [i])', 'val.setAttribute' is undefined)
 
 //function secondPagePost(params) {
 // User fills in Name
