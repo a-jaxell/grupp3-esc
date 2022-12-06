@@ -578,9 +578,27 @@ footer a:hover {
   margin: 15px 0px 15px 0px;
 }
 
-.filter-menu .ratingSection {
+.ratingSection {
   grid-row: 2/span 1;
   grid-column: 2/span 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.ratingSection h4 {
+  display: block;
+  width: 100%;
+}
+.ratingSection span {
+  margin: 0 5px;
+  font-size: 13px;
+}
+.ratingSection ul {
+  display: flex;
+}
+.ratingSection.fa-solid, .ratingSection .fa-star-half-stroke, .ratingSection .fa-star {
+  font-size: 12px;
+  color: #8ACFE5;
 }
 
 .filter-menu .cross {
