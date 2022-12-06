@@ -44,7 +44,10 @@ export class TypeFilter{
         labelOnsite.innerText = 'Include onsite challenges';
         
         const htmlBrk = document.createElement('br');
+        const typeTitle = document.createElement('h4');
+        typeTitle.innerText = 'By type';
 
+        checkBoxDiv.append(typeTitle);
         checkBoxDiv.append(inputOnline);
         checkBoxDiv.append(labelOnline);
         checkBoxDiv.append(htmlBrk);

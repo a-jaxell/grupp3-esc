@@ -26,6 +26,11 @@ export class LabelFilter{
              const labelSection = document.createElement('div');
              labelSection.className = 'labelSection';
             
+             const labelHeader = document.createElement('h4');
+             labelHeader.innerText = 'By tags';
+             labelHeader.className = 'labelHeader';
+             labelSection.append(labelHeader);
+
              for(let i = 0; i < this.list.challenges.length; i++){
                 this.list.challenges[i].data.labels.forEach(element => {
                     if(!this.labelButtons.includes(element)){

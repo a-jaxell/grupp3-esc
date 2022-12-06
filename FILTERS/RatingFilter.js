@@ -13,17 +13,23 @@ export class RatingFilter {
   }
 
   render() {
+    let ctr = document.createElement('div');
+    let ratingTitle = document.createElement('h4');
+    ratingTitle.innerHTML = 'By rating';
+    ctr.className = 'ratingSection';
+    
     const input = document.createElement('input');
     input.type = 'range';
     input.min = 0;
     input.max = 5;
     input.value = 0;
-    input.className = 'ratingBox';
+
+    ctr.append(ratingTitle, input);
     input.addEventListener('change', (ev) => {
-        this.minRating = ev.target.value;
+      this.minRating = ev.target.value;
         this.list.update();
     });
-    return input;
+    return ctr;
   }
 }
 
