@@ -4,29 +4,35 @@ export class StarBar {
         this.starCount = ratingFilter.starCount;
   
     }
-    render(lblName) {
+    render(sName) {
       const starBar = document.createElement('div');
-      starBar.className = 'starBar';
+      starBar.classList= 'starBar', sName;
   
       for (let i = this.starCount; i > 0; i--) {
         const input = document.createElement("input"); //this element is hidden with css
         input.setAttribute('type', 'radio');
-        input.setAttribute('name', [lblName]);
-        input.setAttribute('id', [lblName]+i);
+        input.setAttribute('name', [sName]);
+        input.setAttribute('id', [sName]+i);
         input.setAttribute('value', [i]);
         input.checked = false;
 
         const label = document.createElement('label'); //visual representation of the star
-        label.setAttribute('for', [lblName]+i);
+        label.setAttribute('for', [sName]+i);
         label.setAttribute('value', [i]);
 
         label.addEventListener('click', (ev) =>  {
-          if (lblName === 'max') {
+          if (sName === 'max') {
             
-            let maxInputs = document.querySelectorAll(`.starBar input[name=${lblName}]`);
+            
+            let maxInputs = document.querySelectorAll(`.starBar input[name=${sName}]`);
             for (let j = 0; j < maxInputs.length; j++) {
               if (maxInputs[j].value == i && maxInputs[j].checked) {
                 console.log('clicked on the same value.');
+                document.querySelector('.starBar input[value = "5"]').checked = true;
+
+                if (j == 0) {
+                  maxInputs[j].checked = false;
+                }
               }
             }
           }
