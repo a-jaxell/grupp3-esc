@@ -33,6 +33,13 @@ export class FilterCollection {
             const filterMenu = document.createElement('div');
             filterMenu.className = 'filter-menu';
             
+            const crossX = document.createElement('div');
+            crossX.className = 'cross crossX';
+            const crossY = document.createElement('div');
+            crossY.className = 'cross crossY';
+
+           filterMenu.append(crossY, crossX);
+            
             const filterMenuHeader = document.createElement('h3');
             filterMenuHeader.innerText = 'Filter Challenges';
         
