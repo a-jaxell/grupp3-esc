@@ -37,8 +37,11 @@ export class FilterCollection {
             crossX.className = 'cross crossX';
             const crossY = document.createElement('div');
             crossY.className = 'cross crossY';
+            const crossBox = document.createElement('div');
 
-           filterMenu.append(crossY, crossX);
+            crossBox.append(crossY, crossX);
+            crossBox.className = 'crossBox';
+            filterMenu.append(crossBox);
             
             const filterMenuHeader = document.createElement('h3');
             filterMenuHeader.innerText = 'Filter Challenges';
