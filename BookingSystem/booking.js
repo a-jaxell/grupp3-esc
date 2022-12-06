@@ -106,8 +106,6 @@ async function evalInput() {
         bookingContainer.innerHTML = "";
         secondPage(availTimes, challengeData);
     }
-
-    secondPage();
 }
 
 function okFormatAndTime(availTimes) {
