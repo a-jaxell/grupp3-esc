@@ -1,4 +1,4 @@
-import { StarBar } from "./StarBar.js";
+import { StarBars as StarBars } from "./StarBars.js";
 
 export class NewRatingFilter {
   constructor(listObj) {
@@ -21,47 +21,15 @@ export class NewRatingFilter {
   }
 
   render() {
-    const starBar = new StarBar(this);
-    const minStarBar = starBar.render("min");
-    const maxStarBar = starBar.render("max");
+    const starBars = new StarBars(this);
+    const twoBars = starBars.render();
 
     const ctr = document.createElement("div");
     ctr.className = "ratingSection";
-    ctr.appendChild(minStarBar);
-    ctr.appendChild(maxStarBar);
-
+    ctr.appendChild(twoBars);
+    ctr.addEventListener('change', ()=> {
+      this.list.update();
+    })
     return ctr;
   }
 }
-
-// min.forEach(input => {
-//   if (input.checked) {
-//     const inputVal = input.value;
-//     console.log(`new value: ${input.value}`);
-//     console.log(`old value: ${this.minValBeforeClick}`);
-//     if(inputVal === this.minValBeforeClick){
-//       console.log("You clicked on same button");
-//     } else {
-//       console.log("You clicked on a new button");
-//     }
-//     this.minValBeforeClick = inputVal;
-//   }
-// })
-
-// ctr.addEventListener("click", () => {
-//   minInputs = document.querySelectorAll(".starBar input[name='min']");
-//   for (let i = 0; i < minInputs.length; i ++) {
-//     if (minInputs[i].checked) {
-//       const valAfterClick = Number(minInputs[i].value);
-//       console.log(`valAfterClick: ${valAfterClick}`);
-//       console.log(`valBeforeClick: ${this.minValBeforeClick}`);
-//       if (valAfterClick === this.minValBeforeClick) {
-//         console.log("You clicked on the same button");
-//         const uncheck =  document.querySelector(".starBar input[name='min']").value +1; //arbeta vidare på idé // gör om till number för att kunna plussa på
-//         console.log(uncheck);
-//       } else {
-//         console.log("You clicked on a new button");
-//       }
-
-//       this.list.update();
-//       this.minValBeforeClick = valAfterClick;
