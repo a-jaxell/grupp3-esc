@@ -27,7 +27,22 @@ export class StarBars {
         if (starBar[b] == "min") {
           label.addEventListener("click", () => this.minBarListener());
         } else if (starBar[b] == "max") {
-          label.addEventListener("click", () => this.maxBarListener(i));
+          label.addEventListener("click", () => {
+            label.setAttribute("for", starBar[b] + [i]); //if the label was decremented from the label.setAttribute below, then it is incremented here again if the user wants to reclick value
+            let maxInputs = document.querySelectorAll(
+              ".starBar input[name='max']"
+            );
+            for (let j = 0; j < maxInputs.length; j++) {
+              if (maxInputs[j].value == i && maxInputs[j].checked) {
+                console.log("clicked on the same value.");
+                console.log(i);
+                document.querySelector(
+                  '.starBar.max input[value = "1"]'
+                ).checked = true;
+                label.setAttribute("for", starBar[b] + [i - 1]); //changing label input target, so that if user clicks again
+              }
+            }
+          });
         }
         tempBar.append(input, label);
       }
@@ -39,22 +54,5 @@ export class StarBars {
   minBarListener() {
     // let minInputs = document.querySelectorAll();
     console.log("click");
-  }
-
-  maxBarListener(i) {
-    console.log(i);
-    
-    let maxInputs = document.querySelectorAll(".starBar input[name='max']");
-    for (let j = 0; j < maxInputs.length; j++) {
-      if (maxInputs[j].value == i && maxInputs[j].checked) {
-        console.log("clicked on the same value.");
-        document.querySelector('.starBar.max input[value = "1"]').checked = true;
-        this.ratingFilter.list.update();
-
-        if (j == 0) {
-          maxInputs[j].checked = false;
-        }
-      }
-    }
   }
 }
