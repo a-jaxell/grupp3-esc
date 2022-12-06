@@ -30,8 +30,10 @@ export class StarBars {
             label.setAttribute("for", starBar[b] + [i]); //if the label was decremented from the label.setAttribute below, then it is incremented here again if the user wants to reclick value
             label.setAttribute("value", [i]);
             this.ratingFilter.minRating = i;
+            
             let minInputs = document.querySelectorAll(".starBar input[name='min'");
             let maxInputs = document.querySelectorAll(".starBar input[name='max']");
+            
             
 
             for (let m = 0; m < minInputs.length; m++) {
@@ -41,6 +43,14 @@ export class StarBars {
                 label.setAttribute("for", starBar[b] + [i - 1]); //changing label input target, so that if user clicks again
                 label.setAttribute("value", [i - 1]);
                 this.ratingFilter.minRating = i -1;
+                
+                maxInputs.forEach(maxInput => {
+                  console.log(minInputs[m].value);
+                  console.log(Number(maxInput));
+                  if (Number(i - 1) > Number(maxInput.value)) {
+                    document.querySelector(`.starBar.max input[value='${i-1}']`).checked = true;
+                  }
+                })
               }
             }
           });
