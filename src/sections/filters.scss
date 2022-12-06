@@ -3,20 +3,18 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-
 }
 
 .filters-toggle {
     display: block;
 }
 
-.filter-menu{
+.filter-menu {
     display: none;
 }
 
 .filter-menu.open {
-        display: block;
-        background-color: pink;
-        width: 80%;
+    display: block;
+    background-color: pink;
+    width: 80%;
 }
-
