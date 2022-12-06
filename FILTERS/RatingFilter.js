@@ -18,6 +18,7 @@ export class RatingFilter {
     input.min = 0;
     input.max = 5;
     input.value = 0;
+    input.className = 'ratingBox';
     input.addEventListener('change', (ev) => {
         this.minRating = ev.target.value;
         this.list.update();
