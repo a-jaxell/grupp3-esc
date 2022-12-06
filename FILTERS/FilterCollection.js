@@ -32,6 +32,12 @@ export class FilterCollection {
 
             const filterMenu = document.createElement('div');
             filterMenu.className = 'filter-menu';
+            
+            const filterMenuHeader = document.createElement('h3');
+            filterMenuHeader.innerText = 'Filter Challenges';
+        
+            filterMenu.appendChild(filterMenuHeader);
+            
 
 /*             document.querySelector('.main-nav-toggle').addEventListener('click', () => {
                 document.querySelector('.main-nav').classList.toggle('open');
