@@ -1,4 +1,5 @@
-const bookingContainer = document.querySelector(".booking-container");
+import { bookingContainer } from "./booking.js";
+// const bookingContainer = document.querySelector(".booking-container");
 
 let titleThirdPage = document.createElement("h1");
 titleThirdPage.className = "title-ThirdPage";

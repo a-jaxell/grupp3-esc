@@ -107,7 +107,7 @@ async function evalInput() {
         secondPage(availTimes, challengeData);
     }
 
-    // secondPage();
+    secondPage();
 }
 
 function okFormatAndTime(availTimes) {
@@ -119,7 +119,7 @@ function okFormatAndTime(availTimes) {
         console.log("These are the available dates: ", availTimes);
         //secondPage();
 
-        // thirdPage();
+        //thirdPage();
     }
 }
 
