@@ -24,17 +24,23 @@ export class StarBar {
           if (lblName === 'max') {
             
             let maxInputs = document.querySelectorAll(`.starBar input[name=${lblName}]`);
-            maxInputs.forEach(ele => {
-              if (ele.value == i && ele.checked) {
+            for (let j = 0; j < maxInputs.length; j++) {
+              if (maxInputs[j].value == i && maxInputs[j].checked) {
                 console.log('clicked on the same value.');
               }
-              
-            })
+            }
           }
         })
         starBar.append(input, label);
       }
-
+      
       return starBar;
     }
   }
+
+  // maxInputs.forEach(ele => {
+  //   if (ele.value == i && ele.checked) {
+  //     console.log('clicked on the same value.');
+  //   }
+    
+  // })
