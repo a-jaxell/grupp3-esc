@@ -22,44 +22,17 @@ export class NewRatingFilter {
 
   render() {
     const starBar = new StarBar(this);
-    const minStarBar = starBar.render(this.starCount, "min", this.minArr);
-    const maxStarBar = starBar.render(this.starCount, "max", this.maxArr);
-    
-    
-    
+    const minStarBar = starBar.render("min");
+    const maxStarBar = starBar.render("max");
+
     const ctr = document.createElement("div");
-    ctr.className = "ratingFilter";
+    ctr.className = "ratingSection";
     ctr.appendChild(minStarBar);
     ctr.appendChild(maxStarBar);
-    let minInputs = document.querySelectorAll(".starBar input[name='min']"); 
 
-    ctr.addEventListener("click", () => {
-      minInputs = document.querySelectorAll(".starBar input[name='min']");
-      for (let i = 0; i < minInputs.length; i ++) {
-        if (minInputs[i].checked) {
-          const valAfterClick = Number(minInputs[i].value);
-          console.log(`valAfterClick: ${valAfterClick}`);
-          console.log(`valBeforeClick: ${this.minValBeforeClick}`);
-          if (valAfterClick === this.minValBeforeClick) {
-            console.log("You clicked on the same button");
-            const uncheck =  document.querySelector(".starBar input[name='min']").value +1; //arbeta vidare på idé // gör om till number för att kunna plussa på
-            console.log(uncheck);
-          } else {
-            console.log("You clicked on a new button");
-          }
-
-          this.list.update();
-          this.minValBeforeClick = valAfterClick;
-        }
-      }
-    });
-    
     return ctr;
   }
 }
-
-
-
 
 // min.forEach(input => {
 //   if (input.checked) {
@@ -74,3 +47,21 @@ export class NewRatingFilter {
 //     this.minValBeforeClick = inputVal;
 //   }
 // })
+
+// ctr.addEventListener("click", () => {
+//   minInputs = document.querySelectorAll(".starBar input[name='min']");
+//   for (let i = 0; i < minInputs.length; i ++) {
+//     if (minInputs[i].checked) {
+//       const valAfterClick = Number(minInputs[i].value);
+//       console.log(`valAfterClick: ${valAfterClick}`);
+//       console.log(`valBeforeClick: ${this.minValBeforeClick}`);
+//       if (valAfterClick === this.minValBeforeClick) {
+//         console.log("You clicked on the same button");
+//         const uncheck =  document.querySelector(".starBar input[name='min']").value +1; //arbeta vidare på idé // gör om till number för att kunna plussa på
+//         console.log(uncheck);
+//       } else {
+//         console.log("You clicked on a new button");
+//       }
+
+//       this.list.update();
+//       this.minValBeforeClick = valAfterClick;

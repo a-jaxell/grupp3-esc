@@ -1,42 +1,40 @@
 export class StarBar {
     constructor (ratingFilter){
         this.ratingFilter = ratingFilter;
+        this.starCount = ratingFilter.starCount;
+  
     }
-    render(starCount, name, arr) {
-      const tempArr = [];
+    render(lblName) {
       const starBar = document.createElement('div');
       starBar.className = 'starBar';
   
-      for (let i = 1; i <= starCount; i++) {
+      for (let i = this.starCount; i > 0; i--) {
         const input = document.createElement("input"); //this element is hidden with css
         input.setAttribute('type', 'radio');
-        input.setAttribute('name', [name]);
-        input.setAttribute('id', [name]+i);
+        input.setAttribute('name', [lblName]);
+        input.setAttribute('id', [lblName]+i);
         input.setAttribute('value', [i]);
         input.checked = false;
 
         const label = document.createElement('label'); //visual representation of the star
-        label.setAttribute('for', [name]+i);
+        label.setAttribute('for', [lblName]+i);
         label.setAttribute('value', [i]);
-        tempArr.push([input, label]);
-      }
-      tempArr.reverse();
 
-      tempArr.forEach(elePair => {
-        starBar.append(elePair[0], elePair[1]);
-      })
+        label.addEventListener('click', (ev) =>  {
+          if (lblName === 'max') {
+            
+            let maxInputs = document.querySelectorAll(`.starBar input[name=${lblName}]`);
+            maxInputs.forEach(ele => {
+              if (ele.value == i && ele.checked) {
+                console.log('clicked on the same value.');
+              }
+              
+            })
+          }
+        })
+        starBar.append(input, label);
+      }
+
       return starBar;
     }
   }
-
-
-
-  // for (let i = 0; i < tempArr.length; i++) {
-    //   tempArr[i][1].addEventListener('click', (event) => {
-    //     if (tempArr[i][0].checked) {
-    //       console.log(tempArr[i][0])
-    //       tempArr[i][0].checked
-    //       tempArr[i+1][0].checked;
-    //     }
-    //   })
-    // }
