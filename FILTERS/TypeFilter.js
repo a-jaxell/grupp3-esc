@@ -43,8 +43,11 @@ export class TypeFilter{
         labelOnsite.for = 'checkBoxOsite';
         labelOnsite.innerText = 'Include onsite challenges';
         
+        const htmlBrk = document.createElement('br');
+
         checkBoxDiv.append(inputOnline);
         checkBoxDiv.append(labelOnline);
+        checkBoxDiv.append(htmlBrk);
         checkBoxDiv.append(inputOnsite);
         checkBoxDiv.append(labelOnsite);
 

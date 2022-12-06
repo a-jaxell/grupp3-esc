@@ -27,13 +27,13 @@
 
         const input = document.createElement('input');
         input.type = 'text';
-        input.className = '.stringInput';
+        input.className = 'stringInput';
         input.addEventListener('keyup', (event) => {
             this.filterText = event.target.value.toLowerCase();
             this.filterText = this.filterText.split(' ');
             console.log(this.filterText);
             this.list.update();
-        
+            
         });
         return input;
     }
