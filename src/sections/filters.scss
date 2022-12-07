@@ -137,16 +137,9 @@
     border-radius: 2px;
 }
 .crossY{
-
-    /* -webkit-transform:  rotate(45deg); 
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg); */
     transform: translateY(5px) rotate(-45deg);
 }
 .crossX{
-    /* -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg); */
     transform: rotate(45deg);
 }
 .crossBox{
