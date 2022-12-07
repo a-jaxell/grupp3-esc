@@ -10,13 +10,13 @@
 
 .challenge-list {
     display: flex;
-    overflow-x: scroll;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-
 .challenge-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-width: 360px;
+    max-width: 360px;
 
     border-radius: 4px;
     margin: 1em;
@@ -31,6 +31,11 @@
         margin: 0.5rem;
     }
 
+    .rating{
+        .fa-star,.fa-star-half-stroke{
+            color: $c-brightred;
+        }
+    }
     .challenge-image {
         grid-column: span 2;
     }

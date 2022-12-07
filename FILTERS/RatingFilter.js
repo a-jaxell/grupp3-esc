@@ -13,16 +13,40 @@ export class RatingFilter {
   }
 
   render() {
+    let ctr = document.createElement('div');
+    let ratingTitle = document.createElement('h4');
+    ratingTitle.innerHTML = 'By rating';
+    ctr.className = 'ratingSection';
+    
     const input = document.createElement('input');
     input.type = 'range';
     input.min = 0;
     input.max = 5;
     input.value = 0;
+
+    const dummyStars = document.createElement('ul');
+    for(let i = 0; i < 5; i++){
+      const star = document.createElement('li');
+      star.className = 'fa-star fa-solid';
+      dummyStars.appendChild(star);
+    }
+
+    const dummySpan = document.createElement('span');
+    dummySpan.innerText = 'to'
+
+    const dummyStars2 = document.createElement('ul');
+    for(let i = 0; i < 5; i++){
+      const star = document.createElement('li');
+      star.className = 'fa-star fa-solid';
+      dummyStars2.appendChild(star);
+    }
+    
+    ctr.append(ratingTitle, dummyStars,dummySpan,dummyStars2);
     input.addEventListener('change', (ev) => {
-        this.minRating = ev.target.value;
+      this.minRating = ev.target.value;
         this.list.update();
     });
-    return input;
+    return ctr;
   }
 }
 
