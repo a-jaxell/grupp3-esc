@@ -26,6 +26,12 @@ export class NewRatingFilter {
     const ctr = starBars.render();
     const ratingHeader = document.createElement('h4');
     ratingHeader.innerText = 'By Rating';
+
+    const toSpan = document.createElement('span');
+    toSpan.innerText = 'to'
+    toSpan.className = 'rating-span';
+    
+    ctr.append(toSpan);
     ctr.append(ratingHeader);
     ctr.className = "ratingSection";
     ctr.addEventListener('change', ()=> {
