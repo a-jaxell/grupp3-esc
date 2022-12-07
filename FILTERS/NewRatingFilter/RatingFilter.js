@@ -5,7 +5,7 @@ export class NewRatingFilter {
     this.list = listObj;
     this.starCount = 5;
     this.minRating = 0; // init val
-    this.maxRating = this.starCount; // init val
+    this.maxRating = 0; // init val
     this.minValBeforeClick = 0;
   }
 
