@@ -46,7 +46,7 @@ export class StarBars {
             
 
             for (let m = 0; m < minInputs.length; m++) {
-              if (minInputs[m].value == i && minInputs[m].checked) {
+              if (minInputs[m].value == i && minInputs[m].checked && i > 1) {
 
                 label.setAttribute("for", starBar[b] + [i - 1]); //changing label input target, so that if user clicks again
                 label.setAttribute("value", [i - 1]);
@@ -81,7 +81,7 @@ export class StarBars {
             })
 
             for (let j = 0; j < maxInputs.length; j++) {
-              if (maxInputs[j].value == i && maxInputs[j].checked) {
+              if (maxInputs[j].value == i && maxInputs[j].checked && i > 1) {
 
                   label.setAttribute("for", starBar[b] + [i - 1]); //changing label input target, so that if user clicks again
                   this.ratingFilter.maxRating = [i - 1]
