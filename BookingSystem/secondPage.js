@@ -1,14 +1,8 @@
 import { thirdPage } from "./thirdPage.js";
 import { globalDate, globalTime, bookingContainer } from "./booking.js";
-import { APIAdapter } from "../API/APIadapter.js";
-
-/* const bookingContainer = document.querySelector(".booking-container"); */
 
 let data;
 let availableTimes;
-
-// let bookingContainer = document.createElement("div");
-// bookingContainer.className = "booking-container";
 
 let titleSecondPage = document.createElement("h1");
 titleSecondPage.className = "title-secondPage";
@@ -76,11 +70,8 @@ export function secondPage(availTimes, challengeData) {
     bookingContainer.appendChild(participants);
     bookingContainer.appendChild(detailsButton);
     renderParticipants();
-    //
-    // detailsButton.addEventListener("click", thirdPage);
 
     availableTimes.forEach((element) => {
-        // GÖRA SEPARAT FUNCTION AV DENNA?
         let x = new Option(element);
         x.setAttribute("value", element);
         timeInput.appendChild(x);
@@ -88,7 +79,7 @@ export function secondPage(availTimes, challengeData) {
 
     submitPost();
 }
-//Unhandled Promise Rejection: TypeError: undefined is not a function (near '...secondPage.apply.addEventListener...')
+
 function submitPost() {
     detailsButton.addEventListener("click", (e) => {
         if (document.getElementById("name-input").value.length == 0) {
@@ -103,11 +94,11 @@ function submitPost() {
                     method: "POST",
                     body: JSON.stringify({
                         challenge: data.id,
-                        name: getName(), // funkar
-                        email: getEmail(), //funkar
-                        date: globalDate, //funkar
-                        time: getTime(), // <--- globalTime stod där innan
-                        participants: getParticipants(), //userInput
+                        name: getName(),
+                        email: getEmail(),
+                        date: globalDate,
+                        time: getTime(),
+                        participants: getParticipants(),
                     }),
                     headers: {
                         "Content-Type": "application/json;charset=UTF-8",
@@ -137,37 +128,14 @@ function getTime() {
     return document.getElementById("time-input").value;
 }
 
-function getChallengeID() {}
-// description: "Bring back the skills of the past";
-// id: 2;
-// image: "https://placekitten.com/640/480";
-// labels: (2)[("ssh", "bash")];
-// maxParticipants: 8;
-// minParticipants: 2;
-// rating: 2.5;
-// title: "Challenge online";
-// type: "onsite";
-
 function getParticipants() {
-    return document.getElementById("participants-input".value);
+    return parseInt(document.getElementById("participants-input").value);
 }
 
 function renderParticipants() {
     for (let i = data.minParticipants; i <= data.maxParticipants; i++) {
-        let option = new Option(`${i} participant(s)`);
+        let option = new Option(`${i}` + " participant(s)");
         option.setAttribute("value", i);
         participants.appendChild(option);
     }
 }
-
-//Unhandled Promise Rejection: TypeError: val.setAttribute is not a function. (In 'val.setAttribute("value" [i])', 'val.setAttribute' is undefined)
-
-//function secondPagePost(params) {
-// User fills in Name
-// User fills in Email
-// User chooses a time for when they can do the challenge
-// User pick the number of participants that will be in the challenge
-// User then clicks the 'SUBMIT BOOKING' button to book the challenge.
-// All the info will then be sent as a HTTP (post request) to the API
-// The button click will also load page number three (thirdpage();)
-//}
