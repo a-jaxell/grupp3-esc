@@ -47,6 +47,7 @@
     grid-column: 1 /span 1;
         input[type=checkbox]{
             transform: translateY(2.5px);
+            accent-color: #8ACFE5;
         }
         label{
             font-size: 0.65em;
@@ -94,19 +95,25 @@
 .ratingSection{
     grid-row: 2 / span 1;
     grid-column: 2 / span 1;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 2;
     width: 100%;
-    display: flex;
+    // display: flex;
     align-items: flex-end;
 
     h4{
         display: block; 
+        grid-row: 1;
         width: 100%;
     }
     span{
         margin: 0 5px;
         font-size: 13px;
+        grid-row: 2;
     }
     ul{
+        grid-row: 2;
         display: flex;
         
     }
