@@ -22,11 +22,9 @@ export class NewRatingFilter {
 
   render() {
     const starBars = new StarBars(this);
-    const twoBars = starBars.render();
-
-    const ctr = document.createElement("div");
+   
+    const ctr = starBars.render();
     ctr.className = "ratingSection";
-    ctr.appendChild(twoBars);
     ctr.addEventListener('change', ()=> {
       this.list.update();
     })
