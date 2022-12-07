@@ -24,6 +24,9 @@ export class NewRatingFilter {
     const starBars = new StarBars(this);
    
     const ctr = starBars.render();
+    const ratingHeader = document.createElement('h4');
+    ratingHeader.innerText = 'By Rating';
+    ctr.append(ratingHeader);
     ctr.className = "ratingSection";
     ctr.addEventListener('change', ()=> {
       this.list.update();
