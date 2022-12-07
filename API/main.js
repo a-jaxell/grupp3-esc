@@ -9,5 +9,12 @@ import {ChallengeList} from "./ChallengeList.js";
 
   document.querySelector('.filters-toggle').addEventListener('click', () => {
     document.querySelector('.filter-menu').classList.toggle('open');
+    document.querySelector('.filters-toggle').style.display = 'none';
 })
+document.querySelector('.crossBox').addEventListener('click', () => {
+  document.querySelector('.filter-menu').classList.toggle('open');
+  document.querySelector('.filters-toggle').style.display = 'block';
+})
+
+
 })();

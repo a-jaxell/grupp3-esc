@@ -26,6 +26,11 @@ export class LabelFilter{
              const labelSection = document.createElement('div');
              labelSection.className = 'labelSection';
             
+             const labelHeader = document.createElement('h4');
+             labelHeader.innerText = 'By tags';
+             labelHeader.className = 'labelHeader';
+             labelSection.append(labelHeader);
+
              for(let i = 0; i < this.list.challenges.length; i++){
                 this.list.challenges[i].data.labels.forEach(element => {
                     if(!this.labelButtons.includes(element)){
@@ -37,8 +42,8 @@ export class LabelFilter{
                 const labelButton = document.createElement('input');
                 labelButton.type = 'button';
                 labelSection.append(labelButton);
-                labelButton.value = this.labelButtons[i];
-                
+                labelButton.value = this.labelButtons[i].charAt(0).toUpperCase().concat(this.labelButtons[i].slice(1));
+               
             }
             labelSection.addEventListener('click', (ev) => {
                 if(!this.matchArray.includes(ev.target.value)){
@@ -47,6 +52,9 @@ export class LabelFilter{
                 }else{
 
                     this.matchArray = this.matchArray.filter(ele => ele !== ev.target.value);
+                }
+                if(ev.target.type === 'button'){
+                    ev.target.classList.toggle('label-clicked');
                 }
                 this.list.update();
             });
