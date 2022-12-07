@@ -39,7 +39,6 @@
         input.addEventListener('keyup', (event) => {
             this.filterText = event.target.value.toLowerCase();
             this.filterText = this.filterText.split(' ');
-            console.log(this.filterText);
             this.list.update();
             
         });
