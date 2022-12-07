@@ -42,8 +42,8 @@ export class LabelFilter{
                 const labelButton = document.createElement('input');
                 labelButton.type = 'button';
                 labelSection.append(labelButton);
-                labelButton.value = this.labelButtons[i];
-                
+                labelButton.value = this.labelButtons[i].charAt(0).toUpperCase().concat(this.labelButtons[i].slice(1));
+               
             }
             labelSection.addEventListener('click', (ev) => {
                 if(!this.matchArray.includes(ev.target.value)){
