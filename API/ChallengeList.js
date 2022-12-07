@@ -10,11 +10,6 @@ export class ChallengeList {
     const challenges = await api.loadChallenges();
     this.challenges = challenges;
 
-    // <section class="challenges">
-    // <h2>Our challenges</h2>
-    // <button class="">Filter challenges</button>
-    // </section>
-
     const ctr = document.createElement("section");
     ctr.className = "challenges";
 

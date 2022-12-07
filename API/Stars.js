@@ -24,7 +24,7 @@ export class Stars {
           stars -= roundedRating + halfStar;
           createStar(stars, 'fa-regular', 'fa-star');
         }
-        //<i class="fa-solid fa-star"></i>
+        
         function createStar(count, class1, class2) {
           for (let i = 0; i < count; i++) {
             const star = document.createElement("li");
