@@ -548,10 +548,10 @@ input {
 }
 
 .title-firstPage {
-  width: 500px;
+  width: 600px;
   height: 30px;
   position: absolute;
-  right: 380px;
+  left: 20px;
   top: 25px;
   font-size: xx-large;
 }
@@ -589,10 +589,10 @@ input {
 }
 
 .title-secondPage {
-  width: 500px;
+  width: 600px;
   height: 30px;
   position: absolute;
-  right: 380px;
+  left: 20px;
   top: 25px;
   font-size: xx-large;
 }
@@ -672,7 +672,7 @@ input {
   right: 25px;
   width: 265px;
   height: 80px;
-  background-color: dodgerblue;
+  background-color: rgb(75, 14, 160);
   color: beige;
   border: none;
   text-transform: uppercase;
