@@ -22,13 +22,11 @@ export class Challenge {
         item.innerHTML += `<small class="challenge-meta">${this.data.minParticipants}-${this.data.maxParticipants} participants</small>
                           <p class="challenge-description">${this.data.description}</p>`
               
-                            
         let btnBookRoom = document.createElement("button");
         btnBookRoom.className = "button primary";
         btnBookRoom.setAttribute("id", this.data.id);
         btnBookRoom.innerHTML = "Book this room"; 
                             
-        
         btnBookRoom.addEventListener("click", () => {
             bookingModal(this.data);
         });
