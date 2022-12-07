@@ -49,7 +49,6 @@ export class LabelFilter{
                 if(!this.matchArray.includes(ev.target.value.toLowerCase())){
 
                     this.matchArray.push(ev.target.value.toLowerCase());
-                    console.log(ev.target.value.toLowerCase());
                 }else{
 
                     this.matchArray = this.matchArray.filter(ele => ele !== ev.target.value.toLowerCase());
