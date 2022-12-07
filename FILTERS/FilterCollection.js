@@ -9,11 +9,12 @@ export class FilterCollection {
         constructor(list){
             this.list = list;
             this.filters = [
-                // new RatingFilter(list),
-                // new StringFilter(list),
-                // new TypeFilter(list),
-                // new LabelFilter(list),
+            
+                new StringFilter(list),
+                new TypeFilter(list),
+                new LabelFilter(list),
                 new NewRatingFilter(list),
+
             ];
         }
 
@@ -29,11 +30,27 @@ export class FilterCollection {
             container.className = 'filters';
 
             const button = document.createElement('button');
-            button.className = 'filters-toggle';
+            button.className = 'filters-toggle button secondary';
             button.innerText = 'Filter Challenges';
 
             const filterMenu = document.createElement('div');
             filterMenu.className = 'filter-menu';
+            
+            const crossX = document.createElement('div');
+            crossX.className = 'cross crossX';
+            const crossY = document.createElement('div');
+            crossY.className = 'cross crossY';
+            const crossBox = document.createElement('div');
+
+            crossBox.append(crossY, crossX);
+            crossBox.className = 'crossBox';
+            filterMenu.append(crossBox);
+            
+            const filterMenuHeader = document.createElement('h3');
+            filterMenuHeader.innerText = 'Filter Challenges';
+        
+            filterMenu.appendChild(filterMenuHeader);
+            
 
 /*             document.querySelector('.main-nav-toggle').addEventListener('click', () => {
                 document.querySelector('.main-nav').classList.toggle('open');

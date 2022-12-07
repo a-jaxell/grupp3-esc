@@ -24,16 +24,24 @@
         // delas upp i enstaka ord med hjälp av .split.
 
     render() {
-
+        let stringFilterContainer = document.createElement('div');
+        let stringFilterTitle = document.createElement('h4');
         const input = document.createElement('input');
+        
+        stringFilterTitle.innerHTML = 'Or type to search for keyword';
+        stringFilterContainer.className = 'stringInput';
+        
+        stringFilterContainer.append(stringFilterTitle, input);
         input.type = 'text';
+        input.placeholder = 'Start typing to filter';
+        
+        
         input.addEventListener('keyup', (event) => {
             this.filterText = event.target.value.toLowerCase();
             this.filterText = this.filterText.split(' ');
-            console.log(this.filterText);
             this.list.update();
-        
+            
         });
-        return input;
+        return stringFilterContainer;
     }
 }
