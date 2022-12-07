@@ -5,7 +5,7 @@ export const queryJson = async(date, challengeId) => {
     const dateInput = date;
     // const idInput = challengeId;
     const requestUrl = `${url}?date=${dateInput}&challenge=3`;
-    console.log(requestUrl);
+    //console.log(requestUrl);
 
     const res = await fetch(requestUrl);
 
