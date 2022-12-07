@@ -669,8 +669,7 @@ footer a:hover {
   content: "★";
 }
 
-input {
-  width: 50%;
+.booking-container input {
   display: block;
   margin: 2px auto;
   padding: 5px;
