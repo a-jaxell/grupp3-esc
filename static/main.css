@@ -549,14 +549,15 @@ footer a:hover {
   border: 1.5em;
   background-color: white;
   border-radius: 1em;
-  border: 1px solid gray;
+  border: 2px solid lightgray;
   margin: 2px;
 }
 .filter-menu .labelSection input.label-clicked {
-  background-color: darkgray;
+  background-color: #8ACFE5;
+  border-color: #8ACFE5;
 }
 .filter-menu .labelSection input:hover {
-  background-color: darkgray;
+  background-color: #8ACFE5;
   transition: 0.2ms;
 }
 .filter-menu .labelSection.label-clicked {
@@ -577,16 +578,16 @@ footer a:hover {
   border-radius: 5px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   margin: 15px 0px 15px 0px;
+  outline: none;
 }
 
 .ratingSection {
   grid-row: 2/span 1;
   grid-column: 2/span 1;
   display: grid;
-  grid-template-columns: 1;
+  grid-template-columns: 3fr 1fr 3fr;
   grid-template-rows: 2;
   width: 100%;
-  align-items: flex-end;
 }
 .ratingSection h4 {
   display: block;
@@ -594,13 +595,16 @@ footer a:hover {
   width: 100%;
 }
 .ratingSection span {
-  margin: 0 5px;
+  margin: 0;
+  text-align: center;
+  grid-column: 2;
   font-size: 13px;
   grid-row: 2;
 }
 .ratingSection ul {
-  grid-row: 2;
   display: flex;
+  justify-content: center;
+  grid-row: 2;
 }
 .ratingSection.fa-solid, .ratingSection .fa-star-half-stroke, .ratingSection .fa-star {
   font-size: 12px;
