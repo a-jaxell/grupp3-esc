@@ -508,12 +508,6 @@ footer a:hover {
   width: 80%;
 }
 
-#test-button {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-
 input {
   width: 50%;
   display: block;
@@ -525,16 +519,19 @@ input {
   width: 500px;
   height: 300px;
   background-color: whitesmoke;
-  /* border-radius: 10px; */
   text-align: center;
   padding: 20px;
-  position: relative;
-  top: 200px;
-  left: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -365px;
   font-size: small;
   display: none;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
   border: 1px solid black;
-  z-index: 2;
 }
 
 #bookingButton {
