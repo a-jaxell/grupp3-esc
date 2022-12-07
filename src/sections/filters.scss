@@ -9,7 +9,7 @@
     display: block;
 }
 
-.filter-menu{
+.filter-menu {
     display: none;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 20%); 
@@ -29,6 +29,7 @@
 }
 
 .filter-menu.open {
+
     display: grid;
 }
 

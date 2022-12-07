@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: Roboto;
   font-size: 18px;
 }
 @media (min-width: 1000px) {
-  html, body {
+  html,
+  body {
     font-size: 24px;
   }
 }
@@ -671,4 +673,194 @@ footer a:hover {
 .starBar input:checked ~ label:before {
   content: "\f005";
   font-weight: 900;
+}
+
+.booking-container input {
+  display: block;
+  margin: 2px auto;
+  padding: 5px;
+}
+
+.booking-container {
+  width: 800px;
+  height: 530px;
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -365px;
+  font-size: small;
+  display: none;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+#bookingButton {
+  position: absolute;
+  top: 150px;
+  left: 170px;
+  width: 200px;
+  height: 50px;
+  background-color: rgb(75, 14, 160);
+  color: beige;
+  border: none;
+  text-transform: uppercase;
+  font-size: large;
+  cursor: pointer;
+}
+
+.title-firstPage {
+  width: 600px;
+  height: 30px;
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  font-size: xx-large;
+}
+
+.paragraph-one {
+  width: 175px;
+  height: 30px;
+  position: absolute;
+  left: 10px;
+  top: 90px;
+  font-size: xx-large;
+}
+
+.date-input {
+  width: 150px;
+  height: 40px;
+  border: 1px solid black;
+  position: absolute;
+  left: 60px;
+  top: 180px;
+}
+
+.dating-button {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 335px;
+  height: 80px;
+  background-color: rgb(75, 14, 160);
+  color: beige;
+  border: none;
+  text-transform: uppercase;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.title-secondPage {
+  width: 600px;
+  height: 30px;
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  font-size: xx-large;
+}
+
+.name-header {
+  width: 55px;
+  height: 50px;
+  position: absolute;
+  left: 120px;
+  top: 80px;
+}
+
+.name-input {
+  width: 150px;
+  height: 20px;
+  border: 1px solid black;
+  position: absolute;
+  left: 70px;
+  top: 115px;
+}
+
+.email-header {
+  width: 100px;
+  height: 25px;
+  position: absolute;
+  left: 90px;
+  top: 170px;
+}
+
+.email-input {
+  width: 150px;
+  height: 20px;
+  border: 1px solid black;
+  position: absolute;
+  left: 70px;
+  top: 210px;
+}
+
+.time-header {
+  width: 55px;
+  height: 50px;
+  position: absolute;
+  left: 105px;
+  top: 275px;
+}
+
+.time-input {
+  width: 170px;
+  height: 40px;
+  border: 1px solid black;
+  position: absolute;
+  left: 70px;
+  bottom: 215px;
+}
+
+.participants-header {
+  width: 145px;
+  height: 72px;
+  position: absolute;
+  left: 75px;
+  bottom: 90px;
+  font-size: large;
+}
+
+.participants {
+  width: 175px;
+  height: 40px;
+  border: 1px solid black;
+  position: absolute;
+  left: 65px;
+  bottom: 115px;
+}
+
+.details-button {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 265px;
+  height: 80px;
+  background-color: rgb(75, 14, 160);
+  color: beige;
+  border: none;
+  text-transform: uppercase;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.title-ThirdPage {
+  width: 800px;
+  height: 62px;
+  position: absolute;
+  left: 10px;
+  top: 150px;
+  font-size: xx-large;
+}
+
+.back-to-start {
+  width: 260px;
+  height: 70px;
+  position: absolute;
+  left: 280px;
+  top: 250px;
+  text-align: center;
+  font-size: x-large;
 }
