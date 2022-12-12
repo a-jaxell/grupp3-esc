@@ -44,7 +44,7 @@ li {
 
 .button.secondary {
     background-color: #8acfe5;
-    color: #021928;
+    color: #011827;
 }
 
 .rating {
@@ -66,7 +66,7 @@ li {
 }
 
 header {
-    background-color: #021928;
+    background-color: #011827;
     color: white;
     padding: 1em;
 }
@@ -171,7 +171,7 @@ header h1 {
     }
     .main-nav.open .main-menu {
         z-index: 1;
-        background-color: #021928;
+        background-color: #011827;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -212,7 +212,7 @@ header h1 {
 @media (min-width: 600px) {
     .main-nav {
         display: block;
-        background-color: #021928;
+        background-color: #011827;
         padding-top: 2rem;
     }
     .main-menu {
@@ -422,7 +422,7 @@ header h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #021928;
+    background-color: #011827;
     color: white;
     padding: 3rem 1rem;
 }
@@ -487,7 +487,7 @@ header h1 {
 }
 
 footer {
-    background-color: #021928;
+    background-color: #011827;
     color: white;
     padding: 1rem 1rem 3rem;
 }
