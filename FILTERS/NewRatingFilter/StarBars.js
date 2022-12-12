@@ -22,6 +22,10 @@ export class StarBars {
         const label = document.createElement("label"); //visual representation of the star
         label.setAttribute("for", starBar[b] + [i]);
         label.setAttribute("value", [i]);
+        if ([b] == 1 && i == 5) {
+          input.checked = true; 
+          this.ratingFilter.maxRating = 5;
+        }
 
         //   input.addEventListener('change', (ev) => {
 

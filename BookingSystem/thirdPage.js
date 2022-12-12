@@ -8,7 +8,7 @@ titleThirdPage.innerHTML = "Thank you for booking";
 let completedLink = document.createElement("a");
 completedLink.className = "back-to-start";
 completedLink.innerText = "Back to booking";
-completedLink.href = "../challenges.html";
+completedLink.href = "challenges.html";
 
 export function thirdPage() {
     bookingContainer.innerHTML = "";
