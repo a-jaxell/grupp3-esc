@@ -1,5 +1,6 @@
 import { bookingModal } from "../BookingSystem/booking.js";
 import { Stars } from "./Stars.js";
+import String from "./String.js";
 
 export class Challenge {
     constructor(data) {
