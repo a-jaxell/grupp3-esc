@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="static/main.css" />
+    <title>[ESC] Hacker Escape Rooms</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Hacker Escape Rooms</h1>
+    </header>
+    <nav class="main-nav">
+      <button class="main-nav-toggle"></button>
+      <menu class="main-menu">
+        <li class="main-menu-item"><a href="">Play online</a></li>
+        <li class="main-menu-item"><a href="">Play on-site</a></li>
+        <li class="main-menu-item"><a href="">The story</a></li>
+        <li class="main-menu-item"><a href="">Contact us </a></li>
+      </menu>
+    </nav>
+    <section class="hero">
+        <img alt="Three friends smiling at the camera." src="static/aboutus-hero.jpg" />
+    </section>
+    <section class="about-us">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Ut et massa mi. Aliquam in hendrerit urna. 
+            Pellentesque sit amet sapien fringilla, 
+            mattis ligula consectetur, ultrices mauris. 
+            Maecenas vitae mattis tellus.
+        </p>
+        <aside class="mission-quote">
+            “Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.”
+        </aside>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Ut et massa mi. Aliquam in hendrerit urna. 
+            Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. 
+            Maecenas vitae mattis tellus. Nullam quis imperdiet augue. 
+            Vestibulum auctor ornare leo, non suscipit magna interdum eu. 
+            Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. 
+            Pellentesque commodo lacus at sodales sodales. 
+            Quisque sagittis orci ut diam condimentum, vel euismod erat placerat.
+        </p>
+
+    </section>
+    <section class="story about-us challenge-link">
+        <p>Try one of our challenges online or at any of our sites.</p>
+        <button class="button primary">Online challenges</button>
+    </section>
+    <footer>
+        <div class="footer-summary">
+            <h2>[Esc] Hacker Escape Rooms</h2>
+            <p>
+                Quodsi haberent magnalia inter potentiam et divitias, et non illam quidem haec eo spectant haec quoque vos omnino desit illud quo solo felicitatis libertatisque perficiuntur.
+            </p>
+        </div>
+        <nav class="footer-sitemap">
+            <h2>Site map</h2>
+            <menu>
+                <li class="misc-link"><a href="">The Story</a></li>
+                <li class="misc-link"><a href="">Contact Us</a></li>
+                <li class="misc-link"><a href="">Legal</a></li>
+                <li class="play-link"><a href="">Play online</a></li>
+                <li class="play-link"><a href="">Play on-site</a></li>
+            </menu>
+        </nav>
+        <nav class="footer-social">
+            <h2>Follow us on</h2>
+            <menu>
+                <li><a href="">Facebook</a></li>
+                <li><a href="">Instagram</a></li>
+                <li><a href="">Twitter</a></li>
+            </menu>
+        </nav>
+    </footer>
+    <script src="./API/index.js" type="module"></script>
+    <script>
+        document
+            .querySelector(".main-nav-toggle")
+            .addEventListener("click", () => {
+                document.querySelector(".main-nav").classList.toggle("open");
+            });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/ae6b87b55c.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
