@@ -1,0 +1,24 @@
+.about-us{
+    
+    @include section;
+
+    &.summary, .descriptive{
+        margin: 2em;
+    }
+    &.mission-quote{
+        background-color: $c-darkblue;
+        color: $c-lightblue;
+        font-weight: 200;
+        height: 100px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+    &.challenge-link{
+        p{
+            font-size: 2em;
+            font-weight: 200;
+            color: $c-lightblue;
+        }
+    }
+}
