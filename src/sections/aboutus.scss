@@ -15,6 +15,7 @@
         font-style: italic;
         height: 100px;
         width: 100%;
+
     }
     &.challenge-link{
         p{
@@ -23,7 +24,16 @@
             color: $c-lightblue;
         }
     }
-    
+    &.usps{
+        display: none;
+        @media (min-width: $bp-large) {
+            display: block;
+        }
+        .contact-us-img{
+            min-width:50%;
+            object-fit: cover;
+        }
+    }
 }
 .about-us-container{
     @media (min-width: $bp-large) {

@@ -889,6 +889,18 @@ footer a:hover {
   font-weight: 200;
   color: #8acfe5;
 }
+.about-us.usps {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .about-us.usps {
+    display: block;
+  }
+}
+.about-us.usps .contact-us-img {
+  min-width: 50%;
+  object-fit: cover;
+}
 
 @media (min-width: 1000px) {
   .about-us-container {
