@@ -6,7 +6,11 @@
     h2 {
         text-align: center;
     }
+    @media (min-width: $bp-xlarge){
+        max-width: 1650px;
+    }
 }
+
 
 .challenge-list {
     display: flex;
