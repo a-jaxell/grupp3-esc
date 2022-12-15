@@ -2,24 +2,41 @@
     
     @include section;
 
-    &.summary, .descriptive{
+    &.summary, &.descriptive{
         margin: 2em;
     }
     &.mission-quote{
+        align-items: center;
         background-color: $c-darkblue;
         color: $c-lightblue;
-        font-weight: 200;
-        height: 100px;
         display: flex;
-        text-align: center;
-        align-items: center;
+        justify-content: center;
+        font-weight: 200;
         font-style: italic;
+        height: 100px;
+        width: 100%;
     }
     &.challenge-link{
         p{
             font-size: 2em;
             font-weight: 200;
             color: $c-lightblue;
+        }
+    }
+    
+}
+.about-us-container{
+    @media (min-width: $bp-large) {
+        
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    
+        .summary, .descriptive{
+            grid-column: 2 / 12;
+        }
+        .mission-quote{
+            grid-column: 1 / span 12;
+            font-size: 1.25em;
         }
     }
 }
