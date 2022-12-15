@@ -31,6 +31,13 @@
         margin: 0.5rem;
     }
 
+    i {
+        position:relative;
+        top: -450px;
+        left: 320px;
+        font-size: 25px;  
+    }
+
     .rating{
         .fa-star,.fa-star-half-stroke{
             color: $c-brightred;
