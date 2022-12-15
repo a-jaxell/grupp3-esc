@@ -12,7 +12,6 @@ export class Challenge {
         
         const typeIcon = document.createElement("i");
         
-        
         const stars = new Stars();
         const starContainer = stars.render(this.data.rating);
         starContainer.className = "rating";
