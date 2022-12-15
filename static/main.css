@@ -314,6 +314,11 @@ header h1 {
 .challenges h2 {
   text-align: center;
 }
+@media (min-width: 1675px) {
+  .challenges {
+    max-width: 1650px;
+  }
+}
 
 .challenge-list {
   display: flex;
