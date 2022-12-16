@@ -35,6 +35,16 @@
         margin: 0.5rem;
     }
 
+    i {
+        position: absolute;
+        margin-left: 320px;
+        margin-top: 10px;
+        font-size: 25px;
+        color: whitesmoke;
+        
+        
+    }
+
     .rating{
         .fa-star,.fa-star-half-stroke{
             color: $c-brightred;
