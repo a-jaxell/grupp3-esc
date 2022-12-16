@@ -17,7 +17,7 @@ export class Challenge {
         starContainer.className = "rating";
         
         item.innerHTML = `<img class="challenge-image" src="${this.data.image}" alt="">
-        <h3 class="challenge-title">${this.data.title}</h3>`
+        <h3 class="challenge-title">${this.data.title} - (${this.data.type})</h3>`
         
         item.appendChild(starContainer);
         
@@ -36,15 +36,8 @@ export class Challenge {
         item.appendChild(btnBookRoom);
         item.appendChild(typeIcon);
         
-        
-        
-        if (this.data.type == "online") {
-            typeIcon.className = "fa solid fa-laptop";
-            
-        } else if (this.data.type == "onsite") {
-            typeIcon.className = "fa solid fa-house";
-        } else {typeIcon.className = "";}
-        
+        typeIcon.className = this.data.type == "online" ? "fa solid fa-laptop" : "fa solid fa-house";
+       
         return item;    
     }
 }
