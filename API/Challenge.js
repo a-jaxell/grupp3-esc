@@ -1,9 +1,13 @@
 import { bookingModal } from "../BookingSystem/booking.js";
 import { Stars } from "./Stars.js";
+import String from "./String.js";
 
 export class Challenge {
     constructor(data) {
         this.data = data;
+
+        const maxChars = 30;
+        this.processedDescription = String.abbreviateTo(maxChars, this.data.description);
     }
     render() {
         
@@ -22,8 +26,9 @@ export class Challenge {
         item.appendChild(starContainer);
         
         item.innerHTML += `<small class="challenge-meta">${this.data.minParticipants}-${this.data.maxParticipants} participants</small>
-        <p class="challenge-description">${this.data.description}</p>`
-        
+
+                          <p class="challenge-description">${this.processedDescription}</p>`
+              
         let btnBookRoom = document.createElement("button");
         btnBookRoom.className = "button primary";
         btnBookRoom.setAttribute("id", this.data.id);
