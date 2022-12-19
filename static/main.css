@@ -362,6 +362,9 @@ header h1 {
   font-size: 0.7em;
   padding: 1em;
 }
+.challenge-item:hover {
+  box-shadow: 0 0 3em rgba(0, 0, 0, 0.4);
+}
 
 .challenges-cta {
   display: flex;
