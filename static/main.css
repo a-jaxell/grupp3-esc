@@ -314,6 +314,11 @@ header h1 {
 .challenges h2 {
   text-align: center;
 }
+@media (min-width: 1675px) {
+  .challenges {
+    max-width: 1650px;
+  }
+}
 
 .challenge-list {
   display: flex;
@@ -337,8 +342,16 @@ header h1 {
 .challenge-item .button {
   margin: 0.5rem;
 }
-.challenge-item .rating .fa-star,
-.challenge-item .rating .fa-star-half-stroke {
+
+.challenge-item i {
+  position: absolute;
+  margin-left: 320px;
+  margin-top: 10px;
+  font-size: 25px;
+  color: whitesmoke;
+}
+.challenge-item .rating .fa-star, .challenge-item .rating .fa-star-half-stroke {
+
   color: #e3170a;
 }
 .challenge-item .challenge-image {
