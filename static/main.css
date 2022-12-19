@@ -342,6 +342,7 @@ header h1 {
 .challenge-item .button {
   margin: 0.5rem;
 }
+
 .challenge-item i {
   position: absolute;
   margin-left: 320px;
@@ -350,6 +351,7 @@ header h1 {
   color: whitesmoke;
 }
 .challenge-item .rating .fa-star, .challenge-item .rating .fa-star-half-stroke {
+
   color: #e3170a;
 }
 .challenge-item .challenge-image {
@@ -372,6 +374,9 @@ header h1 {
   grid-column: 2/3;
   font-size: 0.7em;
   padding: 1em;
+}
+.challenge-item:hover {
+  box-shadow: 0 0 3em rgba(0, 0, 0, 0.4);
 }
 
 .challenges-cta {
