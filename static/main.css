@@ -879,6 +879,7 @@ footer a:hover {
   color: #8acfe5;
   display: flex;
   justify-content: center;
+  text-align: center;
   font-weight: 200;
   font-style: italic;
   height: 100px;
