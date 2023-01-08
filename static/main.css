@@ -892,3 +892,55 @@ footer a:hover {
   text-align: center;
   font-size: x-large;
 }
+
+.about-us {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-us.summary, .about-us.descriptive {
+  margin: 2em;
+}
+.about-us.mission-quote {
+  align-items: center;
+  background-color: #021928;
+  color: #8acfe5;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: 200;
+  font-style: italic;
+  height: 100px;
+  width: 100%;
+}
+.about-us.challenge-link p {
+  font-size: 2em;
+  font-weight: 200;
+  color: #8acfe5;
+}
+.about-us.usps {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .about-us.usps {
+    display: block;
+  }
+}
+.about-us.usps .contact-us-img {
+  min-width: 50%;
+  object-fit: cover;
+}
+
+@media (min-width: 1000px) {
+  .about-us-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .about-us-container .summary, .about-us-container .descriptive {
+    grid-column: 2/12;
+  }
+  .about-us-container .mission-quote {
+    grid-column: 1/span 12;
+    font-size: 1.25em;
+  }
+}

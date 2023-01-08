@@ -1,0 +1,53 @@
+.about-us{
+    
+    @include section;
+
+    &.summary, &.descriptive{
+        margin: 2em;
+    }
+    &.mission-quote{
+        align-items: center;
+        background-color: $c-darkblue;
+        color: $c-lightblue;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-weight: 200;
+        font-style: italic;
+        height: 100px;
+        width: 100%;
+
+    }
+    &.challenge-link{
+        p{
+            font-size: 2em;
+            font-weight: 200;
+            color: $c-lightblue;
+        }
+    }
+    &.usps{
+        display: none;
+        @media (min-width: $bp-large) {
+            display: block;
+        }
+        .contact-us-img{
+            min-width:50%;
+            object-fit: cover;
+        }
+    }
+}
+.about-us-container{
+    @media (min-width: $bp-large) {
+        
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    
+        .summary, .descriptive{
+            grid-column: 2 / 12;
+        }
+        .mission-quote{
+            grid-column: 1 / span 12;
+            font-size: 1.25em;
+        }
+    }
+}
