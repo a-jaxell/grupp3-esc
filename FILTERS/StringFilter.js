@@ -27,6 +27,7 @@
         let stringFilterContainer = document.createElement('div');
         let stringFilterTitle = document.createElement('h4');
         const input = document.createElement('input');
+        input.className = 'searchBar'
         
         stringFilterTitle.innerHTML = 'Or type to search for keyword';
         stringFilterContainer.className = 'stringInput';
