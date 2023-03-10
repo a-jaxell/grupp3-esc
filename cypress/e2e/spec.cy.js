@@ -1,6 +1,6 @@
 describe('Checks that localhost is running', () => {
   it('passes', () => {
-    cy.visit('localhost:5501')
+    cy.visit('localhost:5501');
   })
 })
 
